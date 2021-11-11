@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-title class="titulo">REGISTRO DE CUENTA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <img class= "logo"src="assets/icon/logo.png" alt="">
+  <h5 class="ion-text-center">Ingrese sus datos para crear su cuenta</h5>
+  <ion-item class="nombre">
+    <ion-label position="floating"> Nombres</ion-label>
+    <ion-input type="text" name="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellidos</ion-label>
+    <ion-input type="text" name="lastname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Numero de Cedula</ion-label>
+    <ion-input type="number" name="cedula"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Numero de Telefono</ion-label>
+    <ion-input type="number" name="celular"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Correo Electronico</ion-label>
+    <ion-input type="email" name="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" name="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de Usuario</ion-label>
+    <ion-select placeholder="Seleccione su tipo de usuario">
+      <ion-select-option value="o">Obrero</ion-select-option>
+      <ion-select-option value="b">Bodeguero</ion-select-option>
+      <ion-select-option value="S">Secretario</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="block" >Registrarse</ion-button>
+  <ion-button  class="butto" expand="block" >Iniciar Sesion</ion-button>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="pie">
+    <ion-title>Constructora TaipeLopez</ion-title>
+  </ion-toolbar>
+</ion-footer>
