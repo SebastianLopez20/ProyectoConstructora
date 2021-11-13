@@ -1,3 +1,4 @@
+import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { environment } from './../environments/environment';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -13,12 +14,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    MenuSecretarioComponent,
+    MenuBodegueroComponent
   ],
   entryComponents: [],
   imports: [
