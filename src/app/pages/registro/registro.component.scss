@@ -8,26 +8,39 @@
 }
 .titulo{
   text-align: center;
+  --color: black;
+  font-weight: bolder;
 }
 .item{
     margin-bottom: 3%;
 }
 .toolb{
     margin-top: 2%;
-    --background: darkgoldenrod;
+    --background:#F7F408;
     
 }
 .button{
-    margin-top: 5%;
-    --background: darkgray;
+    margin-top: 2%;
+    --background:#F7F408;
+     font-weight: bolder;
+     --color: black;
+
 }
 .ion-no-border{
 
     text-align: center;
     font-family:Arial, Helvetica, sans-serif;
-    color: black;
+    
     
 }
 .pietitulo{
-    color-adjust: black;
+    font-weight: bolder;
+    --color: black;
+}
+.pie{
+    --background:#F7F408;
+    margin-bottom: 2%;
+}
+.buttoi{
+    margin-bottom: 5%;
 }
