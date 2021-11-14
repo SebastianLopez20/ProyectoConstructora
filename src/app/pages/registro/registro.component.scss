@@ -17,6 +17,8 @@
 .toolb{
     margin-top: 2%;
     --background:#F7F408;
+    --border-color: red;
+    --border-style: 5px solid;
     
 }
 .button{
@@ -24,6 +26,9 @@
     --background:#F7F408;
      font-weight: bolder;
      --color: black;
+     margin-right: 3%;
+     margin-left: 3%;
+     
 
 }
 .ion-no-border{
@@ -43,4 +48,9 @@
 }
 .buttoi{
     margin-bottom: 5%;
+}
+.item{
+    margin-right: 3%;
+    margin-left: 3%;
+    
 }
