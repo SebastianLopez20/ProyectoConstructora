@@ -7,8 +7,10 @@
     margin-bottom: 10%;
 }
 .titulo{
-  text-align: center;
-}
+    text-align: center;
+    --color: black;
+    font-weight: bolder;
+  }
 .toolb{
     margin-top: 2%;
     
@@ -29,4 +31,42 @@
 }
 .labelmail{
     margin-right: 10%;
+}
+
+.pie{
+    --background:#F7F408;
+    margin-bottom: 2%;
+}
+.item{
+    margin-bottom: 3%;
+    margin-right: 3%;
+    margin-left: 3%;
+    
+}
+.toolb{
+    margin-top: 2%;
+    --background:#F7F408;
+    --border-color: red;
+    --border-style: 5px solid;
+    
+}
+.button{
+    margin-top: 2%;
+    --background:#F7F408;
+     font-weight: bolder;
+     --color: black;
+     margin-right: 3%;
+     margin-left: 3%;
+     
+
+}
+.pietitulo{
+    font-weight: bolder;
+    --color: black;
+}
+.olvido{
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    
+    margin-left: 30%;
 }
