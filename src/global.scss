@@ -24,3 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.ion-page{
+    background-color: black;
+}
+
+:root{
+    --ion-background-color: #020202;
+}
+.ios{
+    --ion-background-color: #020202; 
+}
+.md{
+    --ion-background-color: #020202;
+}
