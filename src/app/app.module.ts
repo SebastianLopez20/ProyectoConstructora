@@ -1,3 +1,4 @@
+import { MenuObreroComponent } from './Componentes/Obrero/menu-obrero/menu-obrero.component';
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { environment } from './../environments/environment';
@@ -23,7 +24,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     LoginComponent,
     RegistroComponent,
     MenuSecretarioComponent,
-    MenuBodegueroComponent
+    MenuBodegueroComponent,
+    MenuObreroComponent
   ],
   entryComponents: [],
   imports: [
