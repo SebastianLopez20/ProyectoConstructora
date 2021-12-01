@@ -1,6 +1,8 @@
+import { MaterialesComponent } from './pages/materiales/materiales.component';
+import { EquiposComponent } from './pages/equipos/equipos.component';
+import { HerramientasComponent } from './pages/herramientas/herramientas.component';
 import { AjustesComponent } from './backend/ajustes/ajustes.component';
 
-import { MenuObreroComponent } from './Componentes/Obrero/menu-obrero/menu-obrero.component';
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { RegistroComponent } from './pages/registro/registro.component';
@@ -15,8 +17,11 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'menubodega', component: MenuBodegueroComponent},
   { path: 'menusecre', component: MenuSecretarioComponent},
-  {path: 'menuobrero', component: MenuObreroComponent},
   {path: 'ajustes', component: AjustesComponent},
+  {path: 'herramientas', component: HerramientasComponent},
+  {path: 'equipos', component: EquiposComponent},
+  {path: 'materiales', component: MaterialesComponent},
+  {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
   
 

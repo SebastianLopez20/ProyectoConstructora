@@ -1,6 +1,9 @@
+import { MaterialesComponent } from './pages/materiales/materiales.component';
+import { EquiposComponent } from './pages/equipos/equipos.component';
+import { HerramientasComponent } from './pages/herramientas/herramientas.component';
 import { AjustesComponent } from './backend/ajustes/ajustes.component';
 
-import { MenuObreroComponent } from './Componentes/Obrero/menu-obrero/menu-obrero.component';
+
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { environment } from './../environments/environment';
@@ -18,6 +21,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -27,8 +33,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     RegistroComponent,
     MenuSecretarioComponent,
     MenuBodegueroComponent,
-    MenuObreroComponent,
     AjustesComponent,
+    HerramientasComponent,
+    EquiposComponent,
+    MaterialesComponent,
+    
+    
     
   ],
   entryComponents: [],
@@ -38,7 +48,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

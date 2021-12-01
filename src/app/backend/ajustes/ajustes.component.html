@@ -1,6 +1,32 @@
-<p>
-  ajustes works!
-</p>
-<ion-button class="boton" (click)="crearNuevoObrero()">
-  Click me
-</ion-button>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajustes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="data.obrero1.Nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input [(ngModel)]="data.obrero1.Apellido"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Cedula</ion-label>
+      <ion-input [(ngModel)]="data.obrero1.Cedula"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+      <ion-input  [(ngModel)]="data.obrero1.Telefono"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-button class="boton" (click)="crearNuevoObrero()">
+    Click me
+  </ion-button>
+</ion-content>
+

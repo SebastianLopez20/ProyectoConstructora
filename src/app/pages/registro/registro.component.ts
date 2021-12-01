@@ -11,9 +11,7 @@ export class RegistroComponent implements OnInit {
   constructor(private firestore: FirestoreService) { }
 
   ngOnInit() {}
-  getObreros(){
-    this.firestore.getCollection()
-  }
+ 
   
 
 }
