@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-herramientas',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HerramientasComponent implements OnInit {
 
-  constructor() { }
+ 
+
+  constructor(private tabla: MatTableModule,
+    ) { }
 
   ngOnInit() {}
+ 
 
 }
