@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-buttons slot="start">
+      <ion-menu-button class="colormenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo">Agregar Equipos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+    <ion-item class="itmfoto">
+      <ion-label position="floating">Foto</ion-label>
+      <ion-input type="text" [(ngModel)]="data.foto"></ion-input>
+    </ion-item>
+    <ion-item class="itm">
+      <ion-label position="floating" >Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item class="itm">
+      <ion-label position="floating">Descripcion</ion-label>
+      <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+    </ion-item>
+  
+    <ion-item class="itm">
+      <ion-label position="floating">Cantidad</ion-label>
+      <ion-input type="number" [(ngModel)]="data.cantidad"></ion-input>
+    </ion-item>
+    <ion-item class="itm">
+      <ion-label position="floating">Comprado</ion-label>
+      <ion-input type="string" [(ngModel)]="data.fechacompra"></ion-input>
+    </ion-item>
+  
+  <ion-button (click)="crearNuevoEquipo()" class="agregar" >
+    <ion-icon slot='end' name="add-circle"></ion-icon>
+    Agregar</ion-button>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="pie">
+    <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
+  </ion-toolbar>
+</ion-footer>

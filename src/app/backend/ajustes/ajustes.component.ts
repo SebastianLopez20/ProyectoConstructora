@@ -10,13 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class AjustesComponent implements OnInit {
 
   data: Obrero ={
-    obrero1: {
-      Nombre: "",
-      Apellido: "",
-      Cedula: "",
-      Telefono: ""
-},
-  id : '',
+      nombre: "",
+      apellido: "",
+      cedula: "",
+      telefono: "",
+      id : '',
   }
   constructor(private database: FirestoreService,
               private interaction: InteractionService ) { }

@@ -1,3 +1,6 @@
+import { AddmaterialComponent } from './Componentes/addmaterial/addmaterial.component';
+import { AddequipoComponent } from './Componentes/addequipo/addequipo.component';
+import { AddherramientaComponent } from './Componentes/addherramienta/addherramienta.component';
 import { MaterialesComponent } from './pages/materiales/materiales.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
 import { HerramientasComponent } from './pages/herramientas/herramientas.component';
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path: 'herramientas', component: HerramientasComponent},
   {path: 'equipos', component: EquiposComponent},
   {path: 'materiales', component: MaterialesComponent},
+  {path: 'addherramientas', component: AddherramientaComponent},
+  {path: 'addequipos', component: AddequipoComponent},
+  {path: 'addmateriales', component: AddmaterialComponent},
   {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
   

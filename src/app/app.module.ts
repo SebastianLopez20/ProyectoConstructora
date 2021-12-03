@@ -1,3 +1,6 @@
+import { AddmaterialComponent } from './Componentes/addmaterial/addmaterial.component';
+import { AddequipoComponent } from './Componentes/addequipo/addequipo.component';
+import { AddherramientaComponent } from './Componentes/addherramienta/addherramienta.component';
 import { MaterialesComponent } from './pages/materiales/materiales.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
 import { HerramientasComponent } from './pages/herramientas/herramientas.component';
@@ -23,7 +26,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 
 
 
@@ -39,6 +45,9 @@ import {MatTableModule} from '@angular/material/table';
     HerramientasComponent,
     EquiposComponent,
     MaterialesComponent,
+    AddherramientaComponent,
+    AddequipoComponent,
+    AddmaterialComponent
     
     
     
@@ -53,7 +62,8 @@ import {MatTableModule} from '@angular/material/table';
     AngularFirestoreModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
