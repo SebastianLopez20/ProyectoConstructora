@@ -12,21 +12,28 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+import { map } from 'rxjs/operators';
+import { canActivate } from '@angular/fire/compat/auth-guard';
+
+
+const uidAdmin = 'lXciElVmN5UbB2vwy4dGkiRxf3p1';
+const onlyAdmin = () => map((user:any) => !!user && (user.uid === uidAdmin));
 
 
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent},
-  { path: 'menubodega', component: MenuBodegueroComponent},
-  { path: 'menusecre', component: MenuSecretarioComponent},
-  {path: 'ajustes', component: AjustesComponent},
-  {path: 'herramientas', component: HerramientasComponent},
-  {path: 'equipos', component: EquiposComponent},
-  {path: 'materiales', component: MaterialesComponent},
-  {path: 'addherramientas', component: AddherramientaComponent},
-  {path: 'addequipos', component: AddequipoComponent},
-  {path: 'addmateriales', component: AddmaterialComponent},
+  { path: 'registro', component: RegistroComponent, canActivate: [AngularFireAuthGuard]},
+  { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard]},
+  { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'ajustes', component: AjustesComponent, ...canActivate(onlyAdmin)},
+  {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
   
