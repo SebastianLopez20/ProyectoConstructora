@@ -27,45 +27,45 @@
     
       <!-- Position Column -->
       <ng-container matColumnDef="foto">
-        <th mat-header-cell *matHeaderCellDef> Foto </th>
-        <td mat-cell *matCellDef="let element">
-          <ion-input [(ngModel)]="element.foto"></ion-input>  
+        <th size="2" mat-header-cell *matHeaderCellDef> Foto </th>
+        <td mat-cell *matCellDef="let newHerramienta">
+          <ion-input [(ngModel)]="newHerramienta.foto"></ion-input>  
         </td>
       </ng-container>
     
       <!-- Name Column -->
       <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> 
-          <ion-input [(ngModel)]="element.nombre"></ion-input>
+        <th size="3" mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let newHerramienta"> 
+          <ion-input [(ngModel)]="newHerramienta.nombre"></ion-input>
         </td>
       </ng-container>
     
       <!-- Weight Column -->
       <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-        <td mat-cell *matCellDef="let element">
-          <ion-input [(ngModel)]="element.descripcion"></ion-input>
+        <th size="4" mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let newHerramienta">
+          <ion-input [(ngModel)]="newHerramienta.descripcion"></ion-input>
         </td>
       </ng-container>
     
       <!-- Symbol Column -->
       <ng-container matColumnDef="cantidad">
-        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-        <td mat-cell *matCellDef="let element"> 
-          <ion-input [(ngModel)]="element.cantidad"></ion-input>
+        <th size="3" mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let newHerramienta"> 
+          <ion-input [(ngModel)]="newHerramienta.cantidad"></ion-input>
         </td>
       </ng-container>
 
       <!-- Botones Column -->
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element"> 
+        <td mat-cell *matCellDef="let newHerramienta"> 
           <ion-buttons>
-            <ion-button (click)="editar(element)">
+            <ion-button (click)="editar(newHerramienta)">
               <ion-icon slot="icon-only" name="save"></ion-icon>
             </ion-button>
-              <ion-button>
+              <ion-button (click)="deletDoc(newHerramienta.id)">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-button>
           </ion-buttons>  

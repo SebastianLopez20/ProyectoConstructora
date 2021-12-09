@@ -10,17 +10,25 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./herramientas.component.scss'],
 })
 export class HerramientasComponent implements OnInit {
+ path = 'Herramientas';
 
   
 ELEMENT_DATA: Herramientas[] = [
 
 ];
 
-
+newHerramienta : Herramientas ={
+    foto: '',
+    nombre: '',
+    descripcion: '',
+    cantidad: null,
+    id: '',
+}
 
   displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'acciones'];
   
   dataSource: any
+   
   constructor(private tabla: MatTableModule,
               private database: FirestoreService
 
@@ -37,8 +45,9 @@ ELEMENT_DATA: Herramientas[] = [
   }
 
 
-  editar(ev: any) {
-    console.log('elemento -> ', ev);
+  editar(herramienta: Herramientas) {
+    console.log('elemento -> ', herramienta);
+    this.newHerramienta = herramienta;
     
   }
 
@@ -52,6 +61,11 @@ ELEMENT_DATA: Herramientas[] = [
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
           }
       });
+  }
+
+  deletDoc(newHerramienta: Herramientas){
+    const path = 'Herramientas';
+    this.database.deleteDoc(this.path, this.newHerramienta.id )
   }
 
 

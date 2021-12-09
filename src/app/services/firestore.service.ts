@@ -24,6 +24,15 @@ export class FirestoreService {
   getId(){
     return this.firestore.createId();
   }
+  deleteDoc (path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).delete();
+  }
+
+  updateDoc(data: any, path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).update(data);
+  }
 
   
 
