@@ -48,6 +48,7 @@ newHerramienta : Herramientas ={
   editar(herramienta: Herramientas) {
     console.log('elemento -> ', herramienta);
     this.newHerramienta = herramienta;
+    this.database.updateDoc(this.newHerramienta, this.path, this.newHerramienta.id)
     
   }
 
@@ -63,9 +64,11 @@ newHerramienta : Herramientas ={
       });
   }
 
-  deletDoc(newHerramienta: Herramientas){
+  deletDoc(id: string){
     const path = 'Herramientas';
-    this.database.deleteDoc(this.path, this.newHerramienta.id )
+    console.log('newHerramienta id -', id);
+    
+    this.database.deleteDoc(path, id )
   }
 
 

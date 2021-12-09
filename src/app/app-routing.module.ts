@@ -34,6 +34,7 @@ const routes: Routes = [
   {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
+
   {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
   
