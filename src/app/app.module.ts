@@ -10,7 +10,6 @@ import { AjustesComponent } from './backend/ajustes/ajustes.component';
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { environment } from './../environments/environment';
-import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,7 +37,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent,
     MenuSecretarioComponent,
     MenuBodegueroComponent,
     AjustesComponent,

@@ -11,10 +11,18 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./equipos.component.scss'],
 })
 export class EquiposComponent implements OnInit {
-  
+  path = 'Equipos';
   ELEMENT_DATA: Equipos[] = [
 
   ];
+  newEquipo : Equipos={
+    foto: '',
+    nombre: '',
+    descripcion: '',
+    cantidad: null,
+    fechacompra: '',
+    id: '',
+  }
 
    
   displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'fechacompra', 'acciones'];
@@ -31,8 +39,10 @@ export class EquiposComponent implements OnInit {
   }
 
 
-  editar(ev: any) {
-    console.log('elemento -> ', ev);
+  editar(equipo: Equipos) {
+    console.log('elemento -> ', equipo);
+    this.newEquipo = equipo;
+    this.database.updateDoc(this.newEquipo, this.path, this.newEquipo.id)
     
   }
 
@@ -47,5 +57,12 @@ export class EquiposComponent implements OnInit {
           }
       });
   }
+  deletDoc(id: string){
+    const path = 'Equipos';
+    console.log('newEquipo id -', id);
+    
+    this.database.deleteDoc(path, id )
+  }
+
 
 }

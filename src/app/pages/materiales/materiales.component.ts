@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
-import { Materiales } from 'src/app/models/models';
+import { Materiales, Equipos } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
@@ -10,11 +10,20 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./materiales.component.scss'],
 })
 export class MaterialesComponent implements OnInit {
+   path = 'Materiales';
 
   ELEMENT_DATA: Materiales[] = [
 
   ];
 
+  newMaterial : Materiales= {
+    foto: '',
+    nombre: '',
+    descripcion: '',
+    cantidad: null,
+    unidadmedida: '',
+    id:'',
+  }
   
   displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'unidadmedida', 'acciones'];
   dataSource: any
@@ -31,8 +40,10 @@ export class MaterialesComponent implements OnInit {
   }
 
 
-  editar(ev: any) {
-    console.log('elemento -> ', ev);
+  editar(material: Materiales) {
+    console.log('elemento -> ', material);
+    this.newMaterial = material;
+    this.database.updateDoc(this.newMaterial, this.path, this.newMaterial.id)
     
   }
 
@@ -46,6 +57,12 @@ export class MaterialesComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
           }
       });
+  }
+  deletDoc(id: string){
+    const path = 'Materiales';
+    console.log('newMaterial id -', id);
+    
+    this.database.deleteDoc(path, id )
   }
 
 }

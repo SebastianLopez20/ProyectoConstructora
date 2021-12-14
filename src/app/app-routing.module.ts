@@ -8,7 +8,6 @@ import { AjustesComponent } from './backend/ajustes/ajustes.component';
 
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
-import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -24,7 +23,6 @@ const onlyAdmin = () => map((user:any) => !!user && (user.uid === uidAdmin));
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent, canActivate: [AngularFireAuthGuard]},
   { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard]},
   { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'ajustes', component: AjustesComponent, ...canActivate(onlyAdmin)},
