@@ -1,12 +1,12 @@
+import { ObrerosComponent } from './backend/obreros/obreros.component';
+import { AddobreroComponent } from './backend/addobrero/addobrero.component';
+import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
 import { AddmaterialComponent } from './Componentes/addmaterial/addmaterial.component';
 import { AddequipoComponent } from './Componentes/addequipo/addequipo.component';
 import { AddherramientaComponent } from './Componentes/addherramienta/addherramienta.component';
 import { MaterialesComponent } from './pages/materiales/materiales.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
 import { HerramientasComponent } from './pages/herramientas/herramientas.component';
-import { AjustesComponent } from './backend/ajustes/ajustes.component';
-
-
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { environment } from './../environments/environment';
@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 
@@ -39,13 +40,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     LoginComponent,
     MenuSecretarioComponent,
     MenuBodegueroComponent,
-    AjustesComponent,
     HerramientasComponent,
     EquiposComponent,
     MaterialesComponent,
     AddherramientaComponent,
     AddequipoComponent,
-    AddmaterialComponent
+    AddmaterialComponent,
+    PedidosComponent,
+    AddobreroComponent,
+    ObrerosComponent
     
     
     
@@ -61,7 +64,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AngularFireStorageModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

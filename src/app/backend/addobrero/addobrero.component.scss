@@ -1,3 +1,17 @@
+.itm{
+    --background:#454546;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+.itm1{
+    --background:#454546;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
 .toolb{
     margin-top: 2%;
     --background:#F7F408;
@@ -21,6 +35,11 @@
     --color: black;
     text-align: center;
 }
-.colormenu{
-    color: black;
+.agregar{
+    --background: #f6ea00;
+    --color: black;
+    --background-hover:green;
+    margin-top:2% ;
+    margin-left: 2%;
+    margin-bottom: 3%;
 }

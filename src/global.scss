@@ -25,17 +25,16 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
 .ion-page{
-    background-color: black;
+    background-color: #f5f6ab;
 }
 
 :root{
-    --ion-background-color: #020202;
+    --ion-background-color: #f5f6ab;
 }
 .ios{
-    --ion-background-color: #020202; 
+    --ion-background-color: #f5f6ab; 
 }
 .md{
-    --ion-background-color: #020202;
-}
+    --ion-background-color: #f5f6ab;
+} 

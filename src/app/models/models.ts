@@ -4,6 +4,7 @@ export interface Obrero{
         apellido: string;
         cedula: string;
         telefono: string;
+        foto: string;
         id: string;
     
 }

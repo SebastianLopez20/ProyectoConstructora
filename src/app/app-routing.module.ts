@@ -1,11 +1,12 @@
+import { ObrerosComponent } from './backend/obreros/obreros.component';
+import { AddobreroComponent } from './backend/addobrero/addobrero.component';
+import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
 import { AddmaterialComponent } from './Componentes/addmaterial/addmaterial.component';
 import { AddequipoComponent } from './Componentes/addequipo/addequipo.component';
 import { AddherramientaComponent } from './Componentes/addherramienta/addherramienta.component';
 import { MaterialesComponent } from './pages/materiales/materiales.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
 import { HerramientasComponent } from './pages/herramientas/herramientas.component';
-import { AjustesComponent } from './backend/ajustes/ajustes.component';
-
 import { MenuSecretarioComponent } from './Componentes/Secretario/menu-secretario/menu-secretario.component';
 import { MenuBodegueroComponent } from './Componentes/Bodeguero/menu-bodeguero/menu-bodeguero.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -25,13 +26,15 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard]},
   { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'ajustes', component: AjustesComponent, ...canActivate(onlyAdmin)},
   {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'pedidos', component: PedidosComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
+  {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
 
   {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}

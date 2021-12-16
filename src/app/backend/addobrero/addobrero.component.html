@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="obreros" class="backbutton"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">Añadir Obrero</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+    <ion-item class="itm1">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="data.nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item class="itm">
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="data.apellido"></ion-input>
+    </ion-item>
+  
+    <ion-item class="itm">
+      <ion-label position="floating">Cedula</ion-label>
+      <ion-input [(ngModel)]="data.cedula"></ion-input>
+    </ion-item>
+  
+    <ion-item class="itm">
+      <ion-label position="floating">Telefono</ion-label>
+      <ion-input  [(ngModel)]="data.telefono"></ion-input>
+    </ion-item>
+    <ion-item class="itm">
+      <ion-label>Foto</ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot='icon-only' name="images"></ion-icon>
+          </label>
+        <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <img [src]="newImage">
+
+  
+  <ion-button expand="full"class="boton" (click)="crearNuevoObrero()" class="agregar" >
+    <ion-icon slot='end' name="add-circle"></ion-icon>
+    Agregar
+  </ion-button>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="pie">
+    <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
+  </ion-toolbar>
+</ion-footer>
