@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
   {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
 
-  {path: '**', redirectTo:'login',pathMatch:'full'},
+  //{path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
   
 

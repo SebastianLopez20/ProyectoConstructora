@@ -12,21 +12,54 @@
  
   <ion-item>
     <ion-label class="ion-justify-content-start">Obrero</ion-label>
-    <ion-select value="brown" okText="Aceptar" cancelText="Cancelar">
-      <ion-select-option value="brown">Brown</ion-select-option>
-      <ion-select-option value="blonde">Blonde</ion-select-option>
+    <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
+    (ionChange)="selectObrero($event)">
+      <ion-select-option *ngFor="let obrero of obreros, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
     </ion-select>
   </ion-item>
     
   
   <ion-item>
     <ion-label class="ion-justify-content-end">Herramienta</ion-label>
-    <ion-select value="brown" okText="Aceptar" cancelText="Cancelar">
+    <ion-select  [value]="null" okText="Aceptar" cancelText="Cancelar"
+    (ionChange)="selectTipo($event)">
       <ion-select-option value="brown">Brown</ion-select-option>
       <ion-select-option value="blonde">Blonde</ion-select-option>
     </ion-select>
   </ion-item>
 
+  <div *ngIf="tipo == 'herramienta'">
+    <ion-item>
+      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
+      (ionChange)="selectObrero($event)">
+        <ion-select-option *ngFor="let obrero of herramientas, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div *ngIf="tipo == 'herramienta'">
+    <ion-item>
+      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
+      (ionChange)="selectObrero($event)">
+        <ion-select-option *ngFor="let obrero of herramientas, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div *ngIf="tipo == 'herramienta'">
+    <ion-item>
+      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
+      (ionChange)="selectObrero($event)">
+        <ion-select-option *ngFor="let obrero of herramientas, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+
+ 
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="pie">

@@ -35,10 +35,11 @@ export interface Equipos{
 }
 
 export interface Pedidos{
-    obrero: string;
+    obrero: Obrero;
     pedido: string;
     estado: 'pedido'| 'devuelto';
-    fecha: string;
+    fecha: any
     id: string;
+    tipo: any;
 
 }
