@@ -22,6 +22,7 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field> -->
+    <div id="taula">
     
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
@@ -89,6 +90,7 @@
 
 
     </table>
+  </div>
   </ion-content>
   <ion-footer class="ion-no-border">
     <ion-toolbar class="pie">

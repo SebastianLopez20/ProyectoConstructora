@@ -35,3 +35,16 @@ ion-col{
     margin-left: 2%;
     margin-bottom: 3%;
 }
+td {
+    border: 1px royalblue dotted;
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+ 
+#taula {
+    height: 200px !important;
+    overflow:scroll;
+    //width: 220px;
+}

@@ -35,3 +35,23 @@ ion-col{
     margin-left: 2%;
     margin-bottom: 3%;
 }
+td {
+    border: 1px rgb(0, 0, 0) solid;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+}
+ 
+#taula {
+    height: 200px !important;
+    overflow:scroll;
+    //width: 220px;
+}
+th.mat-header-cell {
+    text-align:center;
+    //border: 1px rgb(15, 15, 15) solid;
+    font-weight: bold;
+
+} 
