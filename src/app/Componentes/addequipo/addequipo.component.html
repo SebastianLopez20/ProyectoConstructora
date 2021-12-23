@@ -9,11 +9,6 @@
 
 <ion-content>
 
-  
-    <ion-item class="itmfoto">
-      <ion-label position="floating">Foto</ion-label>
-      <ion-input type="text" [(ngModel)]="data.foto"></ion-input>
-    </ion-item>
     <ion-item class="itm">
       <ion-label position="floating" >Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
@@ -32,10 +27,26 @@
       <ion-label position="floating">Comprado</ion-label>
       <ion-input type="string" [(ngModel)]="data.fechacompra"></ion-input>
     </ion-item>
+
+    <ion-item class="itm">
+      <ion-label>Foto</ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot='icon-only' name="images"></ion-icon>
+          </label>
+        <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <img [src]="newImage">
   
   <ion-button (click)="crearNuevoEquipo()" class="agregar" >
     <ion-icon slot='end' name="add-circle"></ion-icon>
     Agregar</ion-button>
+
+    
 
 </ion-content>
 

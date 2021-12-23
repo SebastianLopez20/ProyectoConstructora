@@ -27,8 +27,8 @@
     
       <!-- Position Column -->
       <ng-container matColumnDef="foto">
-        <th size="2" mat-header-cell *matHeaderCellDef> Foto </th>
-        <td mat-cell *matCellDef="let newObrero">
+        <th  mat-header-cell *matHeaderCellDef> Foto </th>
+        <td class="cedula" mat-cell *matCellDef="let newObrero">
           <!-- <ion-input [(ngModel)]="newObrero.foto"></ion-input>   -->
           <img [src]="newObrero.foto" >
         </td>
@@ -36,24 +36,24 @@
     
       <!-- Name Column -->
       <ng-container matColumnDef="nombre">
-        <th size="3" mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let newObrero"> 
+        <th  mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td  mat-cell *matCellDef="let newObrero"> 
           <ion-input [(ngModel)]="newObrero.nombre"></ion-input>
         </td>
       </ng-container>
     
       <!-- Weight Column -->
       <ng-container matColumnDef="apellido">
-        <th size="4" mat-header-cell *matHeaderCellDef> Apellido </th>
-        <td mat-cell *matCellDef="let newObrero">
+        <th  mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td  mat-cell *matCellDef="let newObrero">
           <ion-input [(ngModel)]="newObrero.apellido"></ion-input>
         </td>
       </ng-container>
     
       <!-- Symbol Column -->
       <ng-container matColumnDef="cedula">
-        <th size="3" mat-header-cell *matHeaderCellDef> Cedula</th>
-        <td mat-cell *matCellDef="let newObrero"> 
+        <th  mat-header-cell *matHeaderCellDef> Cedula</th>
+        <td  mat-cell *matCellDef="let newObrero"> 
           <ion-input [(ngModel)]="newObrero.cedula"></ion-input>
         </td>
       </ng-container>

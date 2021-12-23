@@ -29,8 +29,9 @@
       <!-- Position Column -->
       <ng-container matColumnDef="foto">
         <th mat-header-cell *matHeaderCellDef> Foto </th>
-        <td mat-cell *matCellDef="let newMaterial">
-          <ion-input [(ngModel)]="newMaterial.foto"></ion-input>  
+        <td class="cedula" mat-cell *matCellDef="let newMaterial">
+          <!-- <ion-input [(ngModel)]="newMaterial.foto"></ion-input>   -->
+          <img [src]="newMaterial.foto" >
         </td>
       </ng-container>
     
