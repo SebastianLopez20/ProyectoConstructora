@@ -24,6 +24,7 @@ export interface Materiales{
     cantidad: number;
     unidadmedida: string;
     id: string;
+
 }
 export interface Equipos{
     foto: string;

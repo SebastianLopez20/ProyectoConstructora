@@ -7,6 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <hr class="hr" size = 6>
   
     <ion-item class="itm1">
       <ion-label position="floating">Nombre</ion-label>
@@ -32,14 +33,24 @@
       <ion-buttons slot="end">
         <ion-button>
           <label for="file-upload">
-            <ion-icon slot='icon-only' name="images"></ion-icon>
+            <ion-icon class="iconimg" slot='icon-only' name="images"></ion-icon>
           </label>
         <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
         </ion-button>
       </ion-buttons>
     </ion-item>
+    <hr class="hr" size = 6>
+    <ion-card>
+      <ion-card-header class="cardh">
+        <ion-card-title>Imagen Seleccionada</ion-card-title>
+      </ion-card-header>
 
-    <img [src]="newImage">
+      <ion-card-content>
+        <img *ngIf="data.nombre != null" class="selimg" [src]="newImage">
+      </ion-card-content>
+    </ion-card>
+
+   
 
   
   <ion-button expand="full"class="boton" (click)="crearNuevoObrero()" class="agregar" >

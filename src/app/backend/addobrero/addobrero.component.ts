@@ -44,6 +44,11 @@ export class AddobreroComponent implements OnInit {
      this.database.createDoc(this.data, path, id).then(() => {
         this.interaction.closeLoading();
         this.interaction.presentToast('Guardado Correctamente')
+        this.data.nombre=null;
+        this.data.apellido=null;
+        this.data.cedula=null;
+        this.data.telefono=null;
+        this.data.foto= null;
      })
   }
   async newImageUpload(event: any){

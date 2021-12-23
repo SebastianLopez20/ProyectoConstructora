@@ -50,6 +50,10 @@
 .backbutton{
     color: black;
 }
+.hr{
+    height: 3px;
+    background-color:#f6ea00;
+}
 .agregar{
     --background: #f6ea00;
     --color: black;
@@ -58,4 +62,23 @@
     margin-left: 2%;
     margin-bottom: 3%;
     
+}
+
+.selimg{
+    max-width: 50%;
+    max-height: 50%;
+    justify-content: center !important;
+    display:block;
+    margin:auto;
+    margin-top: 20px;
+    
+}
+.cardh{
+    --background: #f6ea00;
+    text-align: center;
+    --color: black;
+}
+
+.iconimg{
+    color: #f0f0ec;
 }

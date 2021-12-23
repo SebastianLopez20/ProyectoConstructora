@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-
+  <hr class="hr" size = 6>
     <ion-item class="itm">
       <ion-label position="floating" >Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
@@ -27,21 +27,31 @@
       <ion-label position="floating">Unidad de Medida</ion-label>
       <ion-input type="string" [(ngModel)]="data.unidadmedida"></ion-input>
     </ion-item>
+
     <ion-item class="itm">
       <ion-label>Foto</ion-label>
       <ion-buttons slot="end">
         <ion-button>
           <label for="file-upload">
-            <ion-icon slot='icon-only' name="images"></ion-icon>
+            <ion-icon class="iconimg" slot='icon-only' name="images"></ion-icon>
           </label>
         <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
         </ion-button>
       </ion-buttons>
     </ion-item>
+    <hr class="hr" size = 6>
 
-    <img [src]="newImage">
+    <ion-card>
+      <ion-card-header class="cardh">
+        <ion-card-title>Imagen Seleccionada</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content >
+        <img *ngIf="data.nombre != null"  class="selimg" [src]="newImage">
+      </ion-card-content>
+    </ion-card>
   
-  <ion-button (click)="crearNuevoMaterial()" class="agregar" >
+  <ion-button expand="full" (click)="crearNuevoMaterial()" class="agregar" >
     <ion-icon slot='end' name="add-circle"></ion-icon>
     Agregar</ion-button>
 

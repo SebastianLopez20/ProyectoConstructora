@@ -65,7 +65,7 @@
      background: black;
      ion-icon{
          margin-right: 20px;
-         color: black;
+         color: #F7F408;
      }
      ion-item{
          padding-left: 20px;
@@ -90,4 +90,7 @@
     --background:#454546;
     margin-bottom: 2px;
     margin-right: 15px;
+}
+.scroll-y, .scroll-x, .inner-scroll {
+    background-color: black !important;
 }
