@@ -1,12 +1,12 @@
 export interface Obrero{
-   
+
         nombre: string;
         apellido: string;
         cedula: string;
         telefono: string;
         foto: string;
         id: string;
-    
+
 }
 
 export interface Herramientas{
@@ -36,10 +36,10 @@ export interface Equipos{
 }
 
 export interface Pedidos{
-    obrero: Obrero;
-    pedido: string;
+    obrero: any;
+    pedido: any;
     estado: 'pedido'| 'devuelto';
-    fecha: any
+    fecha: any;
     id: string;
     tipo: any;
 

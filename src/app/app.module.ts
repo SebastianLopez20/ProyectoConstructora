@@ -1,3 +1,4 @@
+
 import { ObrerosComponent } from './backend/obreros/obreros.component';
 import { AddobreroComponent } from './backend/addobrero/addobrero.component';
 import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
@@ -48,15 +49,13 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AddmaterialComponent,
     PedidosComponent,
     AddobreroComponent,
-    ObrerosComponent
-    
-    
-    
+    ObrerosComponent,
+
   ],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,

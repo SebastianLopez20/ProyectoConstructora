@@ -1,9 +1,11 @@
 .toolb{
     margin-top: 2%;
-    --background:#F7F408;
+    --background:#2196F3;
     border-color: black;
     border-style: solid;
-    
+    border-left: 0px;
+    border-right: 0px;
+
 }
 .titulo{
     text-align: center;
@@ -11,10 +13,12 @@
     font-weight: bolder;
   }
   .pie{
-    --background:#f6ea00;
+    --background:#2196F3;
     margin-bottom: 2%;
     border-color: black;
     border-style: solid;
+    border-left: 0px;
+    border-right: 0px;
 }
 .pietitulo{
     font-weight: bolder;
@@ -24,3 +28,5 @@
 .colormenu{
     color: black;
 }
+
+

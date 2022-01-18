@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
- 
+
   <ion-item>
     <ion-label class="ion-justify-content-start">Obrero</ion-label>
     <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
@@ -17,52 +17,54 @@
       <ion-select-option *ngFor="let obrero of obreros, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
     </ion-select>
   </ion-item>
-    
-  
+
+
   <ion-item>
-    <ion-label class="ion-justify-content-end">Herramienta</ion-label>
+    <ion-label class="ion-justify-content-end">Tipo</ion-label>
     <ion-select  [value]="null" okText="Aceptar" cancelText="Cancelar"
     (ionChange)="selectTipo($event)">
-      <ion-select-option value="brown">Brown</ion-select-option>
-      <ion-select-option value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="herramienta">Herramientas</ion-select-option>
+      <ion-select-option value="material">Materiales</ion-select-option>
+      <ion-select-option value="equipo">Equipos</ion-select-option>
     </ion-select>
   </ion-item>
 
-  <div *ngIf="tipo == 'herramienta'">
+  <div *ngIf="tipo === 'herramienta'">
     <ion-item>
-      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-label class="ion-justify-content-start">Herramientas</ion-label>
       <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
-      (ionChange)="selectObrero($event)">
-        <ion-select-option *ngFor="let obrero of obreros, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      (ionChange)="selectHerramienta($event)">
+        <ion-select-option *ngFor="let herramienta of herramientas let i = index" [value]="i">{{herramienta.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
   </div>
 
-  <div *ngIf="tipo == 'herramienta'">
+  <div *ngIf="tipo === 'material'">
     <ion-item>
-      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-label class="ion-justify-content-start">Materiales</ion-label>
       <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
-      (ionChange)="selectObrero($event)">
-        <ion-select-option *ngFor="let obrero of obreros let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      (ionChange)="selectMaterial($event)">
+        <ion-select-option *ngFor="let material of materiales let i = index" [value]="i">{{material.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
   </div>
 
-  <div *ngIf="tipo == 'herramienta'">
+  <div *ngIf="tipo === 'equipo'">
     <ion-item>
-      <ion-label class="ion-justify-content-start">Obrero</ion-label>
+      <ion-label class="ion-justify-content-start">Equipos</ion-label>
       <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
-      (ionChange)="selectObrero($event)">
-        <ion-select-option *ngFor="let obrero of obreros, let i = index" [value]="i">{{obrero.nombre}}</ion-select-option>
+      (ionChange)="selectEquipo($event)">
+        <ion-select-option *ngFor="let equipo of equipos, let i = index" [value]="i">{{equipo.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
   </div>
 
 
- 
+ <ion-button color="danger" *ngIf="tipo"  expand="full" fill="clear" shape="round">
+   Crear Pedido
+ </ion-button>
+
+
+
 </ion-content>
-<ion-footer class="ion-no-border">
-  <ion-toolbar class="pie">
-    <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
-  </ion-toolbar>
-</ion-footer>
+

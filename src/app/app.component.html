@@ -1,6 +1,6 @@
 <ion-app>
   <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
- 
+
     <ion-content>
       <div class="menu-header-bg">Menu</div>
       <div class="header-content">
@@ -18,11 +18,6 @@
             <ion-icon name="apps"></ion-icon>
             Iniciar Sesion</ion-item>
         </ion-menu-toggle>
-        <ion-menu-toggle *ngIf="login">
-          <ion-item  detail="true" class="itm">
-            <ion-icon name="person-sharp"></ion-icon>
-            Perfil</ion-item>
-        </ion-menu-toggle>
 
         <ion-menu-toggle *ngIf="login">
           <ion-item  (click)="logout()" detail="true" class="itm">
@@ -39,12 +34,12 @@
             <ion-icon name="person-sharp"  ></ion-icon>
             Obreros</ion-item>
         </ion-menu-toggle>
-         
+
       </ion-list>
     </ion-content>
-  
 
-    
+
+
 
     <ion-footer>
       <ion-toolbar class="pie">

@@ -22,13 +22,13 @@ export class ObrerosComponent implements OnInit {
     telefono: "",
     foto: "",
     id: "",
-}
+};
 displayedColumns: string[] = ['foto', 'nombre', 'apellido', 'cedula', 'acciones'];
 dataSource: any
 
   constructor(private tabla: MatTableModule,
-              private database: FirestoreService) { 
-                this. loadInfo()
+              private database: FirestoreService) {
+                this. loadInfo();
               }
 
   ngOnInit() {}
@@ -42,13 +42,13 @@ dataSource: any
     console.log('elemento -> ', obrero);
     this.newObrero = obrero;
     this.database.updateDoc(this.newObrero, this.path, this.newObrero.id)
-    
+
   }
 
   loadInfo() {
       const path = 'Obreros';
       this.database.getCollection<Obrero>(path).subscribe( res => {
-        
+
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
@@ -60,7 +60,7 @@ dataSource: any
   deletDoc(id: string){
     const path = 'Obreros';
     console.log('newObrero id -', id);
-    
+
     this.database.deleteDoc(path, id )
   }
 

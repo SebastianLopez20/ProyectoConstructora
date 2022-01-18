@@ -1,27 +1,24 @@
 <ion-header>
   <ion-toolbar class="toolb">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
     <ion-title class="titulo">INICIAR SESION</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
   <img class="logo" src="../assets/icon/Captura.JPG" alt="">
   <ion-item class="itm">
-    
+
     <ion-label class="labelmail" position="floating">Correo Electronico</ion-label>
     <ion-input [(ngModel)]="credenciales.correo" type="email" name="email"></ion-input>
   </ion-item>
   <ion-item class="itm" >
-   
+
     <ion-label class="labelmail" position="floating">Contraseña</ion-label>
     <ion-input [(ngModel)]="credenciales.password" type="password" name="password"></ion-input>
   </ion-item>
-  <a class="olvido">Olvide mi contraseña</a>
-  
+
+
   <ion-button (click)="login()" class="butto" expand="block" >Ingresar</ion-button>
-  
+
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar class="pie">

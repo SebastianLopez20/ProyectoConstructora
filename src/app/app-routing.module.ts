@@ -1,6 +1,7 @@
+import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
+
 import { ObrerosComponent } from './backend/obreros/obreros.component';
 import { AddobreroComponent } from './backend/addobrero/addobrero.component';
-import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
 import { AddmaterialComponent } from './Componentes/addmaterial/addmaterial.component';
 import { AddequipoComponent } from './Componentes/addequipo/addequipo.component';
 import { AddherramientaComponent } from './Componentes/addherramienta/addherramienta.component';
@@ -18,7 +19,7 @@ import { canActivate } from '@angular/fire/compat/auth-guard';
 
 
 const uidAdmin = 'lXciElVmN5UbB2vwy4dGkiRxf3p1';
-const onlyAdmin = () => map((user:any) => !!user && (user.uid === uidAdmin));
+const onlyAdmin = () => map((user: any) => !!user && (user.uid === uidAdmin));
 
 
 const routes: Routes = [
@@ -32,13 +33,12 @@ const routes: Routes = [
   {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'pedidos', component: PedidosComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'pedido', component: PedidosComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
   {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
-
   //{path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
-  
+
 
 
 ];

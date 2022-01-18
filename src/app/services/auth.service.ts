@@ -10,11 +10,13 @@ export class AuthService {
 
   login (correo: string, password: string){
     return this.authfirebase.signInWithEmailAndPassword(correo, password)
-    
+
   }
 
   logout(){
     this.authfirebase.signOut();
+    window.location.reload()
+
   }
 
   stateUser(){

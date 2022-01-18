@@ -14,7 +14,7 @@ export class FirestoreService {
     return collection.doc(id).set(data);
   }
 
- 
+
 
   getCollection<Obreros>(path: string){
     const collection= this.firestore.collection<Obreros>(path);
@@ -35,7 +35,7 @@ export class FirestoreService {
     return collection.doc(id).update(data);
   }
 
-  
 
-  
+
+
 }
