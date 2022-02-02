@@ -14,19 +14,15 @@
       <ion-label position="floating" >Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
     </ion-item>
-  
+
     <ion-item class="itm">
       <ion-label position="floating">Descripcion</ion-label>
       <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
     </ion-item>
-  
+
     <ion-item class="itm">
       <ion-label position="floating">Cantidad</ion-label>
       <ion-input type="number" [(ngModel)]="data.cantidad"></ion-input>
-    </ion-item>
-    <ion-item class="itm">
-      <ion-label position="floating">Comprado</ion-label>
-      <ion-input type="string" [(ngModel)]="data.fechacompra"></ion-input>
     </ion-item>
 
     <ion-item class="itm">
@@ -52,17 +48,12 @@
         <img *ngIf="data.nombre != null" class="selimg" [src]="newImage">
       </ion-card-content>
     </ion-card>
-  
+
   <ion-button expand="full" (click)="crearNuevoEquipo()" class="agregar" >
     <ion-icon slot='end' name="add-circle"></ion-icon>
     Agregar</ion-button>
 
-    
+
 
 </ion-content>
 
-<ion-footer class="ion-no-border">
-  <ion-toolbar class="pie">
-    <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
-  </ion-toolbar>
-</ion-footer>

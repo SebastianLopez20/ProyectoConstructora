@@ -1,8 +1,7 @@
 .toolb{
     margin-top: 2%;
     --background:#2196F3;
-    border-color: black;
-    border-style: solid;
+
 
 }
 .titulo{
@@ -46,8 +45,9 @@ th{
 
 #taula {
   width: 100%;
-    overflow:scroll;
+    overflow-x:scroll;
     //width: 220px;
+    margin-bottom: 3%;
 }
  th.mat-header-cell {
     text-align:center;
@@ -73,6 +73,12 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 .cedula{
     width: 100%;
     word-wrap: break-word;
+}
+.iconeye{
+  color: #2196F3;
+}
+.icontrash{
+  color: rgba(238, 55, 55, 0.986);
 }
 
 

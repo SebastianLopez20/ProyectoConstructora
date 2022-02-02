@@ -1,3 +1,5 @@
+import { VerPedidoComponent } from './Componentes/ver-pedido/ver-pedido.component';
+import { DetailsEquipoComponent } from './Componentes/details-equipo/details-equipo.component';
 
 import { ObrerosComponent } from './backend/obreros/obreros.component';
 import { AddobreroComponent } from './backend/addobrero/addobrero.component';
@@ -50,6 +52,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     PedidosComponent,
     AddobreroComponent,
     ObrerosComponent,
+    DetailsEquipoComponent,
+    VerPedidoComponent,
 
   ],
   entryComponents: [],

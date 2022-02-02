@@ -26,16 +26,25 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .ion-page{
-    background-color: #E3F2FD;
-
+    //background-color: linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
+    //background: #C6C9E6;
+    //background: -webkit-linear-gradient(top, #C6C9E6, #4F4AF3);
+   // background: -moz-linear-gradient(top, #C6C9E6, #4F4AF3);
+   --ion-background-color:linear-gradient(to bottom, #C6C9E6, #5D58F5);
 }
 
 :root{
-    --ion-background-color: #E3F2FD;
+    //--ion-background-color:linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
+   // background: #C6C9E6;
+    //background: -webkit-linear-gradient(top, #C6C9E6, #4F4AF3);
+    //background: -moz-linear-gradient(top, #C6C9E6, #4F4AF3);
+    --ion-background-color: linear-gradient(to bottom, #C6C9E6, #5D58F5);
 }
 .ios{
-    --ion-background-color: #E3F2FD;
+    //--ion-background-color: linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
+    --ion-background-color: linear-gradient(to bottom, #C6C9E6, #5D58F5);
 }
 .md{
-    --ion-background-color: #E3F2FD;
+    //--ion-background-color: linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
+    --ion-background-color: linear-gradient(to bottom, #C6C9E6, #5D58F5);
 }

@@ -1,7 +1,7 @@
 import { FirestorageService } from './../../services/firestorage.service';
 import { Component, OnInit } from '@angular/core';
 import { InteractionService } from './../../services/interaction.service';
-import { Herramientas } from './../../models/models';
+import { HerramientaI } from './../../models/models';
 import { FirestoreService } from './../../services/firestore.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { FirestoreService } from './../../services/firestore.service';
 export class AddherramientaComponent implements OnInit {
   newImage = '';
   newFile = '';
-  data: Herramientas ={
+  data: HerramientaI ={
     foto: '',
     nombre: '',
     descripcion: '',
@@ -52,9 +52,9 @@ export class AddherramientaComponent implements OnInit {
      });
      reader.readAsDataURL(event.target.files[0]);
    }
-    
- 
-   
+
+
+
  }
 
 }

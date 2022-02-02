@@ -2,7 +2,7 @@ import { FirestorageService } from './../../services/firestorage.service';
 import { FirestoreService } from './../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 import { InteractionService } from './../../services/interaction.service';
-import { Obrero } from './../../models/models';
+import { ObreroI } from './../../models/models';
 
 @Component({
   selector: 'app-addobrero',
@@ -13,7 +13,7 @@ export class AddobreroComponent implements OnInit {
   newImage = '';
   newFile = '';
 
-  data: Obrero ={
+  data: ObreroI ={
     nombre: "",
     apellido: "",
     cedula: "",
@@ -36,7 +36,7 @@ export class AddobreroComponent implements OnInit {
     const name = this.data.nombre
     const res = await this.firestorageservice.uploadImage(this.newFile, path,name)
     this.data.foto= res;
-    
+
 
 
      const id = this.database.getId();
@@ -60,9 +60,9 @@ export class AddobreroComponent implements OnInit {
       });
       reader.readAsDataURL(event.target.files[0]);
     }
-     
-  
-    
+
+
+
   }
 
 }

@@ -1,0 +1,33 @@
+.toolb{
+  margin-top: 2%;
+  --background:#2196F3;
+
+}
+.titulo{
+  text-align: center;
+  --color: black;
+  font-weight: bolder;
+}
+.itm{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 0%;
+  margin-bottom: 2%;
+  border-radius: 15px;
+  --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
+  box-shadow: -1px 3px 5px 0px rgba(48, 46, 46, 0.288);
+  color: black;
+  font-weight: bolder;
+
+
+}
+h1{
+  margin-left: 18px;
+  color: black;
+  font-weight: bolder;
+  margin-bottom: 1%;
+  font-size: 20px;
+}
+.h1h{
+  margin-top: 2%;
+}

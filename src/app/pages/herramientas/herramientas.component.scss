@@ -1,14 +1,13 @@
 .toolb{
-    margin-top: 2%;
     --background:#2196F3;
-    border-color: black;
-    border-style: solid;
+
 
 }
 .titulo{
     text-align: center;
     --color: black;
     font-weight: bolder;
+    font-size: 18px;
   }
   .pie{
     --background:#2196F3;
@@ -34,15 +33,19 @@ ion-col{
     margin-top:2% ;
     margin-left: 2%;
     margin-bottom: 3%;
+    border-radius: 10px;
 }
  td {
     border: 1px rgb(0, 0, 0) solid;
     text-align: center;
 }
 
+
 #taula {
   width: 100%;
   overflow-x:scroll;
+  margin-bottom: 4%;
+  --background: rgb(64, 24, 240);
 }
 th.mat-header-cell {
     text-align:center;
@@ -71,6 +74,12 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 }
 th{
   min-width: 100px;
+}
+.iconye{
+  color: #2196F3;
+}
+.icontrash{
+  color: rgba(238, 55, 55, 0.986);
 }
 
 

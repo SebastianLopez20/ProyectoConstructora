@@ -1,8 +1,11 @@
+import { DetailsEquipoComponent } from './../../Componentes/details-equipo/details-equipo.component';
+import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
-import { Equipos } from 'src/app/models/models';
+import { EquipoI } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { ModalController } from '@ionic/angular';
 
 
 @Component({
@@ -12,23 +15,24 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 })
 export class EquiposComponent implements OnInit {
   path = 'Equipos';
-  ELEMENT_DATA: Equipos[] = [
+  ELEMENT_DATA: EquipoI[] = [
 
   ];
-  newEquipo : Equipos={
+  newEquipo : EquipoI={
     foto: '',
     nombre: '',
     descripcion: '',
     cantidad: null,
-    fechacompra: '',
     id: '',
   }
 
-   
-  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'fechacompra', 'acciones'];
+
+  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'acciones'];
   dataSource: any
   constructor(private tabla: MatTableModule,
-             private database: FirestoreService) { 
+             private database: FirestoreService,
+             private interaction: InteractionService,
+             public modalController: ModalController,) {
               this. loadInfo()
              }
 
@@ -39,29 +43,46 @@ export class EquiposComponent implements OnInit {
   }
 
 
-  editar(equipo: Equipos) {
+  editar(equipo: EquipoI) {
     console.log('elemento -> ', equipo);
     this.newEquipo = equipo;
     this.database.updateDoc(this.newEquipo, this.path, this.newEquipo.id)
-    
+
   }
 
   loadInfo() {
+    this.interaction.presentLoading("Cargando Datos");
       const path = 'Equipos';
-      this.database.getCollection<Equipos>(path).subscribe( res => {
-        
+      this.database.getCollection<EquipoI>(path).subscribe( res => {
+
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+          this.interaction.closeLoading();
           }
       });
+      this.interaction.presentToast("Datos Cargados");
   }
   deletDoc(id: string){
     const path = 'Equipos';
     console.log('newEquipo id -', id);
-    
+
     this.database.deleteDoc(path, id )
+  }
+
+ async verDetalles(equipo: EquipoI){
+  console.log('detalles', equipo);
+  this.newEquipo = equipo;
+ const modal = await this.modalController.create({
+    component: DetailsEquipoComponent,
+    componentProps: {team: this.newEquipo},
+    mode: 'ios',
+    swipeToClose: true,
+
+  });
+  return await modal.present();
+
   }
 
 

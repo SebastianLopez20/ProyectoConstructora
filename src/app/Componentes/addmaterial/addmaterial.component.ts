@@ -1,7 +1,7 @@
 import { FirestorageService } from './../../services/firestorage.service';
 import { Component, OnInit } from '@angular/core';
 import { InteractionService } from './../../services/interaction.service';
-import { Materiales } from './../../models/models';
+import { MaterialI } from './../../models/models';
 import { FirestoreService } from './../../services/firestore.service';
 
 @Component({
@@ -12,12 +12,11 @@ import { FirestoreService } from './../../services/firestore.service';
 export class AddmaterialComponent implements OnInit {
   newImage = '';
   newFile = '';
-  data: Materiales ={
+  data: MaterialI ={
     foto: '',
     nombre: '',
     descripcion: '',
     cantidad: null,
-    unidadmedida: '',
     id: '',
 }
 
@@ -45,7 +44,6 @@ export class AddmaterialComponent implements OnInit {
         this.data.nombre=null;
         this.data.descripcion=null;
         this.data.cantidad=null;
-        this.data.unidadmedida=null;
         this.data.foto= null;
      })
   }
@@ -59,9 +57,9 @@ export class AddmaterialComponent implements OnInit {
      });
      reader.readAsDataURL(event.target.files[0]);
    }
-    
- 
-   
+
+
+
  }
 
 }

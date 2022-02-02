@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-title  class="titulo">Detalles</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Cerrar()">
+        <ion-icon  name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <h1 class="h1h">Nombre</h1>
+  <ion-item class="itm" *ngIf="team">
+    <ion-label> {{team.nombre}}
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="editarName()">
+        <ion-icon  name="create-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item class="itm" *ngIf="boton" >
+    <ion-input type="text" placeholder="Edite aquí"  [(ngModel)]="team.nombre"></ion-input>
+
+  </ion-item>
+
+  <h1>Cantidad</h1>
+  <ion-item class="itm" *ngIf="team">
+    <ion-label>{{team.cantidad}}</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="editarCantidad()">
+        <ion-icon  name="create-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item class="itm" *ngIf="boton1" >
+    <ion-input type="number" placeholder="Edite aquí" [(ngModel)]="team.cantidad"></ion-input>
+  </ion-item>
+
+  <h1>Descripcion</h1>
+  <ion-item class="itm" *ngIf="team">
+    <ion-label>{{team.descripcion}}</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="editarDesc()">
+        <ion-icon  name="create-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item class="itm" *ngIf="boton2" >
+    <ion-input placeholder="Edite aquí" [(ngModel)]="team.descripcion"></ion-input>
+  </ion-item>
+
+ <!--  <ion-item *ngIf="team">
+    <ion-label>Foto</ion-label>
+    <img [src]="team.foto">
+    <ion-buttons slot="end">
+      <ion-button (click)="editarOne()">
+        <ion-icon  name="image"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item> -->
+  <h1>Foto</h1>
+  <ion-card *ngIf="team">
+    <ion-card-content>
+      <img [src]="team.foto">
+    </ion-card-content>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="end" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-card>
+  <ion-item class="itm">
+    <ion-label>Foto</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon class="iconimg" slot='icon-only' name="images"></ion-icon>
+        </label>
+      <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+
+    <ion-button (click)="editar()">
+      <ion-icon color="danger" slot="start" name="add"></ion-icon>
+      Editar
+    </ion-button>
+
+</ion-content>

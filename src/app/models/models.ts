@@ -1,4 +1,4 @@
-export interface Obrero{
+export interface ObreroI{
 
         nombre: string;
         apellido: string;
@@ -9,7 +9,7 @@ export interface Obrero{
 
 }
 
-export interface Herramientas{
+export interface HerramientaI{
     foto: string;
     nombre: string;
     descripcion: string;
@@ -17,25 +17,23 @@ export interface Herramientas{
     id: string;
 }
 
-export interface Materiales{
+export interface MaterialI{
     foto: string;
     nombre: string;
     descripcion: string;
     cantidad: number;
-    unidadmedida: string;
     id: string;
 
 }
-export interface Equipos{
+export interface EquipoI{
     foto: string;
     nombre: string;
     descripcion: string;
     cantidad: number;
-    fechacompra: string;
     id: string;
 }
 
-export interface Pedidos{
+export interface PedidoI{
     obrero: any;
     pedido: any;
     estado: 'pedido'| 'devuelto';

@@ -1,4 +1,4 @@
-import { Obrero } from './../../models/models';
+import { ObreroI } from './../../models/models';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
@@ -12,10 +12,10 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class ObrerosComponent implements OnInit {
 
   path = 'Obreros';
-  ELEMENT_DATA: Obrero[] = [
+  ELEMENT_DATA: ObreroI[] = [
 
   ];
-  newObrero : Obrero ={
+  newObrero : ObreroI={
     nombre: "",
     apellido: "",
     cedula: "",
@@ -38,7 +38,7 @@ dataSource: any
   }
 
 
-  editar(obrero: Obrero) {
+  editar(obrero: ObreroI) {
     console.log('elemento -> ', obrero);
     this.newObrero = obrero;
     this.database.updateDoc(this.newObrero, this.path, this.newObrero.id)
@@ -47,7 +47,7 @@ dataSource: any
 
   loadInfo() {
       const path = 'Obreros';
-      this.database.getCollection<Obrero>(path).subscribe( res => {
+      this.database.getCollection<ObreroI>(path).subscribe( res => {
 
         if (res) {
           this.ELEMENT_DATA = res;

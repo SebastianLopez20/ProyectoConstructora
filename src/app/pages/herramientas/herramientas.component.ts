@@ -1,7 +1,8 @@
+import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
-import { Herramientas } from 'src/app/models/models';
+import { HerramientaI } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
@@ -12,12 +13,12 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class HerramientasComponent implements OnInit {
  path = 'Herramientas';
 
-  
-ELEMENT_DATA: Herramientas[] = [
+
+ELEMENT_DATA: HerramientaI[] = [
 
 ];
 
-newHerramienta : Herramientas ={
+newHerramienta : HerramientaI ={
     foto: '',
     nombre: '',
     descripcion: '',
@@ -26,11 +27,12 @@ newHerramienta : Herramientas ={
 }
 
   displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'acciones'];
-  
+
   dataSource: any
-   
+
   constructor(private tabla: MatTableModule,
-              private database: FirestoreService
+              private database: FirestoreService,
+              private interaccion: InteractionService,
 
     ) {
 
@@ -45,35 +47,38 @@ newHerramienta : Herramientas ={
   }
 
 
-  editar(herramienta: Herramientas) {
+  editar(herramienta: HerramientaI) {
     console.log('elemento -> ', herramienta);
     this.newHerramienta = herramienta;
     this.database.updateDoc(this.newHerramienta, this.path, this.newHerramienta.id)
-    
+
   }
 
-  loadInfo() {
+  async loadInfo() {
+    await this.interaccion.presentLoading("Cargando Datos");
       const path = 'Herramientas';
-      this.database.getCollection<Herramientas>(path).subscribe( res => {
-        
+      this.database.getCollection<HerramientaI>(path).subscribe( res => {
+
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+          this.interaccion.closeLoading();
           }
       });
+      this.interaccion.presentToast("Datos Cargados");
   }
 
   deletDoc(id: string){
     const path = 'Herramientas';
     console.log('newHerramienta id -', id);
-    
+
     this.database.deleteDoc(path, id )
   }
 
 
-  
- 
+
+
 
 }
 

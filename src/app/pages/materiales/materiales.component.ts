@@ -1,7 +1,8 @@
+import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
-import { Materiales, Equipos } from 'src/app/models/models';
+import { MaterialI, EquipoI } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
@@ -12,24 +13,24 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class MaterialesComponent implements OnInit {
    path = 'Materiales';
 
-  ELEMENT_DATA: Materiales[] = [
+  ELEMENT_DATA: MaterialI[] = [
 
   ];
 
-  newMaterial : Materiales= {
+  newMaterial : MaterialI= {
     foto: '',
     nombre: '',
     descripcion: '',
     cantidad: null,
-    unidadmedida: '',
     id:'',
   }
-  
-  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'unidadmedida', 'acciones'];
+
+  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'acciones'];
   dataSource: any
   constructor(private tabla: MatTableModule,
-              private database: FirestoreService
-              ) { 
+              private database: FirestoreService,
+              private interaction: InteractionService,
+              ) {
                 this. loadInfo()
               }
 
@@ -40,28 +41,31 @@ export class MaterialesComponent implements OnInit {
   }
 
 
-  editar(material: Materiales) {
+  editar(material: MaterialI) {
     console.log('elemento -> ', material);
     this.newMaterial = material;
     this.database.updateDoc(this.newMaterial, this.path, this.newMaterial.id)
-    
+
   }
 
   loadInfo() {
+    this.interaction.presentLoading("Cargando datos")
       const path = 'Materiales';
-      this.database.getCollection<Materiales>(path).subscribe( res => {
-        
+      this.database.getCollection<MaterialI>(path).subscribe( res => {
+
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+          this.interaction.closeLoading();
           }
       });
+      this.interaction.presentToast("Datos Cargados");
   }
   deletDoc(id: string){
     const path = 'Materiales';
     console.log('newMaterial id -', id);
-    
+
     this.database.deleteDoc(path, id )
   }
 

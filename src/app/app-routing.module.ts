@@ -1,3 +1,4 @@
+import { VerPedidoComponent } from './Componentes/ver-pedido/ver-pedido.component';
 import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
 
 import { ObrerosComponent } from './backend/obreros/obreros.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'pedido', component: PedidosComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'verpedidos', component: VerPedidoComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
   {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
   //{path: '**', redirectTo:'login',pathMatch:'full'},

@@ -2,7 +2,7 @@ import { InteractionService } from './../../services/interaction.service';
 import { FirestoreService } from './../../services/firestore.service';
 
 import { Component, OnInit } from '@angular/core';
-import { Obrero, Pedidos, Herramientas, Equipos, Materiales } from 'src/app/models/models';
+import { ObreroI, PedidoI, HerramientaI, EquipoI } from 'src/app/models/models';
 
 @Component({
   selector: 'app-pedidos',
@@ -11,12 +11,16 @@ import { Obrero, Pedidos, Herramientas, Equipos, Materiales } from 'src/app/mode
 })
 export class PedidosComponent implements OnInit {
 
-  obreros: Obrero[] = [];
-  herramientas: Herramientas[]= [];
-  materiales: Materiales[] = [];
-  equipos: Equipos []= [];
+  obreros: ObreroI[] = [];
+  herramientas: HerramientaI[]= [];
+  equipos: EquipoI []= [];
+  Pedidos: PedidoI[]=[]
+  ELEMENT_DATA: PedidoI[] = [
 
-  newPedido: Pedidos = {
+  ];
+  displayedColumns: string[] = ['obrero', 'pedido', 'fecha', 'estado', 'acciones'];
+
+  newPedido: PedidoI = {
     obrero: null,
     pedido: null,
     estado: 'pedido',
@@ -28,27 +32,34 @@ export class PedidosComponent implements OnInit {
 
   tipo = null;
 
-  constructor( private database: FirestoreService,
+
+  constructor(
+               private database: FirestoreService,
               private interaction: InteractionService,) {
                 this.loadObreros();
+                const hoy= new Date(); //dentro de los parentesis poner el formato de fecha obtenido de ionic
+                const fechaInicial = hoy;
+                fechaInicial.setHours(0);
+
    }
 
-  ngOnInit() {}
-
-  loadObreros() {
-   // this.interaction.presentLoading('Cargando Obreros');
-   // this.interaction.closeLoading();
+  ngOnInit() { }
+ async loadObreros(){
+    await this.interaction.presentLoading('Cargando Obreros');
     const path = 'Obreros';
-      this.database.getCollection<Obrero>(path).subscribe( res => {
+      this.database.getCollection<ObreroI>(path).subscribe( res => {
 
+      if(this.obreros.length == 0){
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Datos Cargados');
+      }
         if (res) {
           this.obreros = res;
           console.log('res -> ', this.obreros);
-
            this.obreros.push();
           }
       });
-     // this.interaction.presentToast('Datos Cargados');
+
   }
 
 
@@ -66,29 +77,26 @@ export class PedidosComponent implements OnInit {
       console.log('selec', tipo);
       this.tipo = tipo;
       this.loadHerramientas();
-    }
-    if (tipo === 'material') {
-      console.log('selec', tipo);
-      this.tipo = tipo;
-      this.loadMateriales();
+      this.newPedido.tipo = this.tipo;
     }
     if (tipo === 'equipo') {
       console.log('selec', tipo);
       this.tipo = tipo;
       this.loadEquipos();
+      this.newPedido.tipo = this.tipo;
     }
 
 }
 
 loadHerramientas() {
-  this.interaction.presentLoading('Cargando Herramientas');
+  //this.interaction.presentLoading('Cargando Herramientas');
   const path = 'Herramientas';
-  this.database.getCollection<Herramientas>(path).subscribe( res => {
+  this.database.getCollection<HerramientaI>(path).subscribe( res => {
 
     if (res) {
       this.herramientas = res;
       console.log('res -> ', this.herramientas);
-      this.interaction.closeLoading();
+      //this.interaction.closeLoading();
        //this.obreros.push();
       }
   });
@@ -100,38 +108,15 @@ loadHerramientas() {
       this.newPedido.pedido = this.herramientas[ev.detail.value].nombre;
       console.log('pedido', this.newPedido.pedido);
   }
-
-loadMateriales() {
-  this.interaction.presentLoading('Cargando Materiales');
-  const path = 'Materiales';
-  this.database.getCollection<Materiales>(path).subscribe( res => {
-
-    if (res) {
-      this.materiales = res;
-      console.log('res -> ', this.materiales);
-      this.interaction.closeLoading();
-       //this.obreros.push();
-      }
-  });
-  this.interaction.closeLoading();
-  this.interaction.presentToast('Datos Cargados');
-}
-selectMaterial(ev: any) {
-  console.log('evselectmat -', this.materiales[ev.detail.value]);
-  this.newPedido.pedido = this.materiales[ev.detail.value].nombre;
-  console.log('pedido', this.newPedido.pedido);
-}
-
-
 loadEquipos(){
-  this.interaction.presentLoading('Cargando Equipos');
+  //this.interaction.presentLoading('Cargando Equipos');
   const path = 'Equipos';
-  this.database.getCollection<Equipos>(path).subscribe( res => {
+  this.database.getCollection<EquipoI>(path).subscribe( res => {
 
     if (res) {
       this.equipos = res;
       console.log('res -> ', this.equipos);
-      this.interaction.closeLoading();
+     // this.interaction.closeLoading();
        //this.obreros.push();
       }
   });
@@ -146,10 +131,23 @@ selectEquipo(ev: any) {
 
 
 
-doPedido() {
+async createPedido() {
+  console.log('pedido', this.newPedido);
+  this.interaction.presentLoading('Creando Pedido')
+     const path = 'Pedidos';
+     const name = this.newPedido.obrero
+     const id = this.database.getId();
+     this.newPedido.id = id;
+     this.database.createDoc(this.newPedido, path, id).then(() => {
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Guardado Correctamente')
+     })
+
 
 
 }
+
+
 
 
 }

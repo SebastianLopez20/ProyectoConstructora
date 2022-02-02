@@ -1,8 +1,6 @@
 .toolb{
     margin-top: 2%;
     --background:#2196F3;
-    border-color: black;
-    border-style: solid;
 
 }
 .titulo{
@@ -42,6 +40,7 @@ td {
 #taula {
   width: 100%;
     overflow-x:scroll;
+    margin-bottom: 3%;
     //width: 220px;
 }
 
@@ -72,4 +71,10 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 }
 th{
   min-width: 100px;
+}
+.iconeye{
+ color: #2196F3;
+}
+.icontrash{
+  color: rgba(238, 55, 55, 0.986);
 }
