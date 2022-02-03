@@ -37,7 +37,7 @@ export interface PedidoI{
     obrero: any;
     pedido: any;
     estado: 'pedido'| 'devuelto';
-    fecha: any;
+    fecha:Date| any;
     id: string;
     tipo: any;
 
