@@ -1,3 +1,5 @@
+import { ModalController } from '@ionic/angular';
+import { DetailsMaterialComponent } from './../../Componentes/details-material/details-material.component';
 import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
@@ -30,6 +32,7 @@ export class MaterialesComponent implements OnInit {
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
               private interaction: InteractionService,
+              public modalController: ModalController,
               ) {
                 this. loadInfo()
               }
@@ -67,6 +70,19 @@ export class MaterialesComponent implements OnInit {
     console.log('newMaterial id -', id);
 
     this.database.deleteDoc(path, id )
+  }
+  async verDetalles(material: MaterialI ){
+  console.log('detalles', material);
+  this.newMaterial = material;
+ const modal = await this.modalController.create({
+    component: DetailsMaterialComponent,
+    componentProps: {team: this.newMaterial},
+    mode: 'ios',
+    swipeToClose: true,
+
+  });
+  return await modal.present();
+
   }
 
 }

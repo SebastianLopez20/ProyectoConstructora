@@ -20,12 +20,7 @@ export class DetailsEquipoComponent implements OnInit {
     cantidad: null,
     id: '',
   }
-  boton: boolean = false;
-  boton1: boolean = false;
-  boton2: boolean = false;
-  cont = 0;
-  cont1 = 0;
-  cont2 = 0;
+
   @Input() team: EquipoI;
   constructor(private ModalController: ModalController,
               private database: FirestoreService,
@@ -39,43 +34,6 @@ export class DetailsEquipoComponent implements OnInit {
 
   Cerrar(){
   this.ModalController.dismiss();
-  }
-
-  editarName(){
-    this.cont = this.cont +1
-    if(this.cont == 1){
-      this.boton = true;
-    }
-    if(this.cont == 2){
-      this.boton = false;
-      this.cont = 0;
-    }
-
-
-  }
-  editarCantidad(){
-    this.cont1 = this.cont1 +1
-    if(this.cont1 == 1){
-      this.boton1 = true;
-    }
-    if(this.cont1 == 2){
-      this.boton1 = false;
-      this.cont1 = 0;
-    }
-
-
-  }
-  editarDesc(){
-    this.cont2 = this.cont2 +1
-    if(this.cont2 == 1){
-      this.boton2 = true;
-    }
-    if(this.cont2 == 2){
-      this.boton2 = false;
-      this.cont2 = 0;
-    }
-
-
   }
   async editar() {
     const path = 'Equipos';

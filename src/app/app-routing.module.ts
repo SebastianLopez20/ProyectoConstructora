@@ -20,25 +20,28 @@ import { canActivate } from '@angular/fire/compat/auth-guard';
 
 
 const uidAdmin = 'lXciElVmN5UbB2vwy4dGkiRxf3p1';
+const uidBodega = 'ZRhhqF2A27SvWuJKtXuXO0K7gw33'
 const onlyAdmin = () => map((user: any) => !!user && (user.uid === uidAdmin));
+const onlyBodega = () => map ((user : any) => !!user && (user.uid === uidBodega));
+
 
 
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
-  { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard]},
+  { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'pedido', component: PedidosComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'verpedidos', component: VerPedidoComponent, canActivate: [AngularFireAuthGuard]},
+  {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'addherramientas', component: AddherramientaComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'addequipos', component: AddequipoComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'addmateriales', component: AddmaterialComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'pedido', component: PedidosComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
+  {path: 'verpedidos', component: VerPedidoComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
   {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
-  //{path: '**', redirectTo:'login',pathMatch:'full'},
+  {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
 
 

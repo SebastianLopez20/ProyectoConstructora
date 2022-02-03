@@ -1,3 +1,5 @@
+import { ModalController } from '@ionic/angular';
+import { DetailsObreroComponent } from './../details-obrero/details-obrero.component';
 import { ObreroI } from './../../models/models';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
@@ -27,7 +29,8 @@ displayedColumns: string[] = ['foto', 'nombre', 'apellido', 'cedula', 'acciones'
 dataSource: any
 
   constructor(private tabla: MatTableModule,
-              private database: FirestoreService) {
+              private database: FirestoreService,
+              public modalController: ModalController,) {
                 this. loadInfo();
               }
 
@@ -63,5 +66,19 @@ dataSource: any
 
     this.database.deleteDoc(path, id )
   }
+
+  async verDetalles(obrero: ObreroI){
+    console.log('detalles', obrero);
+    this.newObrero = obrero;
+   const modal = await this.modalController.create({
+      component: DetailsObreroComponent,
+      componentProps: {team: this.newObrero},
+      mode: 'ios',
+      swipeToClose: true,
+
+    });
+    return await modal.present();
+
+    }
 
 }

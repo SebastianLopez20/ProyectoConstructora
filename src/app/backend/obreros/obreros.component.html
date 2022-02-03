@@ -12,11 +12,11 @@
 
   <ion-content>
 
-    
+
     <ion-button [routerLink]="['/addobreros']" class="agregar" >
       <ion-icon slot='end' name="add-circle"></ion-icon>
       Agregar</ion-button>
-   
+
 
 <!--     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
@@ -24,7 +24,7 @@
     </mat-form-field> -->
     <div id="taula">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
+
       <!-- Position Column -->
       <ng-container matColumnDef="foto">
         <th  mat-header-cell *matHeaderCellDef> Foto </th>
@@ -33,15 +33,15 @@
           <img [src]="newObrero.foto" >
         </td>
       </ng-container>
-    
+
       <!-- Name Column -->
       <ng-container matColumnDef="nombre">
         <th  mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td  mat-cell *matCellDef="let newObrero"> 
+        <td  mat-cell *matCellDef="let newObrero">
           <ion-input [(ngModel)]="newObrero.nombre"></ion-input>
         </td>
       </ng-container>
-    
+
       <!-- Weight Column -->
       <ng-container matColumnDef="apellido">
         <th  mat-header-cell *matHeaderCellDef> Apellido </th>
@@ -49,11 +49,11 @@
           <ion-input [(ngModel)]="newObrero.apellido"></ion-input>
         </td>
       </ng-container>
-    
+
       <!-- Symbol Column -->
       <ng-container matColumnDef="cedula">
         <th  mat-header-cell *matHeaderCellDef> Cedula</th>
-        <td  mat-cell *matCellDef="let newObrero"> 
+        <td  mat-cell *matCellDef="let newObrero">
           <ion-input [(ngModel)]="newObrero.cedula"></ion-input>
         </td>
       </ng-container>
@@ -61,21 +61,21 @@
       <!-- Botones Column -->
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let newObrero"> 
+        <td mat-cell *matCellDef="let newObrero">
           <ion-buttons>
-            <ion-button (click)="editar(newObrero)">
-              <ion-icon slot="icon-only" name="save"></ion-icon>
+            <ion-button (click)="verDetalles(newObrero)">
+              <ion-icon slot="icon-only" name="eye-sharp"></ion-icon>
             </ion-button>
               <ion-button (click)="deletDoc(newObrero.id)">
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
+                <ion-icon slot="icon-only" name="trash-sharp"></ion-icon>
               </ion-button>
-          </ion-buttons>  
+          </ion-buttons>
         </td>
       </ng-container>
-    
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
+
       <!-- Row shown when there is no matching data. -->
       <!-- <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
@@ -90,4 +90,4 @@
       <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
     </ion-toolbar>
   </ion-footer>
- 
+

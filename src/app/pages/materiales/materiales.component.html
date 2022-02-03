@@ -71,7 +71,7 @@
         <th mat-header-cell *matHeaderCellDef>Acciones </th>
         <td mat-cell *matCellDef="let newMaterial">
           <ion-buttons>
-            <ion-button (click)="editar(newMaterial)">
+            <ion-button (click)="verDetalles(newMaterial)">
               <ion-icon class="iconeye" slot="icon-only" name="eye-sharp"></ion-icon>
             </ion-button>
               <ion-button (click)="deletDoc(newMaterial.id)">

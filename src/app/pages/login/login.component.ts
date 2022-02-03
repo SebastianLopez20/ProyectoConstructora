@@ -19,26 +19,35 @@ export class LoginComponent implements OnInit {
               private router: Router,) { }
 
   ngOnInit() {}
+
+
    async login(){
-     await this.interaction.presentLoading('Ingresando')
      const res = await this.auth.login(this.credenciales.correo, this.credenciales.password).catch(error => {
        console.log(error);
-      this.interaction.closeLoading();
        this.interaction.presentToast('Error en credenciales');
-       
-     })
-    
-     if(res){
-       console.log('res--',res);
-       this.interaction.closeLoading();
-       this.interaction.presentToast('Ingresado con exito');
-       this.router.navigate(['/obreros'])
-       
 
-       
+     })
+
+     if(res){
+        console.log('res--',res);
+       const thiscorreo = this.credenciales.correo
+      if(thiscorreo == 'bodega@taipelopez.com'){
+        await this.interaction.presentLoading('Ingresando')
+        this.router.navigate(['/menubodega'])
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Ingresado con exito');
+      }
+      if(thiscorreo == 'admin@taipelopez.com'){
+        await this.interaction.presentLoading('Ingresando')
+        this.router.navigate(['/obreros'])
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Ingresado con exito');
+      }
+
      }
-        
-      
+
+
   }
+
 
 }

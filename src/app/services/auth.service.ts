@@ -14,9 +14,7 @@ export class AuthService {
   }
 
   logout(){
-    this.authfirebase.signOut();
-    window.location.reload()
-
+    return this.authfirebase.signOut();
   }
 
   stateUser(){

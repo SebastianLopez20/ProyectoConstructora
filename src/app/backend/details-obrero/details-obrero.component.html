@@ -15,16 +15,23 @@
     <ion-input type="text" placeholder="Edite aquí"  [(ngModel)]="team.nombre"></ion-input>
   </ion-item>
 
-  <h1>Cantidad</h1>
+  <h1>Apellido</h1>
   <ion-item class="itm" *ngIf="team">
-    <ion-input type="number" placeholder="Edite aquí" [(ngModel)]="team.cantidad"></ion-input>
+    <ion-input type="text" placeholder="Edite aquí" [(ngModel)]="team.apellido"></ion-input>
   </ion-item>
 
-  <h1>Descripcion</h1>
+  <h1>Cedula</h1>
   <ion-item class="itm" *ngIf="team">
     <!-- <ion-input placeholder="Edite aquí" [(ngModel)]="team.descripcion"></ion-input> -->
-    <ion-textarea placeholder="Edite aquí" [(ngModel)]="team.descripcion"></ion-textarea>
+    <ion-input maxlength="10" placeholder="Edite aquí" [(ngModel)]="team.cedula"></ion-input>
   </ion-item>
+
+  <h1>Telefono</h1>
+  <ion-item class="itm" *ngIf="team">
+    <!-- <ion-input placeholder="Edite aquí" [(ngModel)]="team.descripcion"></ion-input> -->
+    <ion-input type="text" maxlength="10" placeholder="Edite aquí" [(ngModel)]="team.telefono"></ion-input>
+  </ion-item>
+
   <h1>Foto</h1>
   <ion-item class="itm">
     <ion-label>Nueva Foto</ion-label>

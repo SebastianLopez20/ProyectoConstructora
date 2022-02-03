@@ -19,7 +19,7 @@ export class AppComponent {
         if(res){
           console.log('esta loguieado');
           this.login = true;
-          
+
         }else{
           console.log('no esta logueado');
           this.login = false;
@@ -27,12 +27,12 @@ export class AppComponent {
       })
     }
 
-  
 
-  logout(){
-    this.auth.logout();
+
+  async logout(){
+  await this.auth.logout();
     this.interaction.presentToast('Sesion Cerrada')
-    this.router.navigate(['/login'])
+    this.router.navigate(['login']);
 
   }
 }

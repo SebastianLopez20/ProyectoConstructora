@@ -1,3 +1,5 @@
+import { DetailsHerramientaComponent } from './../../Componentes/details-herramienta/details-herramienta.component';
+import { ModalController } from '@ionic/angular';
 import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
@@ -33,6 +35,7 @@ newHerramienta : HerramientaI ={
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
               private interaccion: InteractionService,
+              public modalController: ModalController,
 
     ) {
 
@@ -76,18 +79,22 @@ newHerramienta : HerramientaI ={
     this.database.deleteDoc(path, id )
   }
 
+  async verDetalles(herramienta: HerramientaI){
+    console.log('detalles', herramienta);
+    this.newHerramienta = herramienta;
+   const modal = await this.modalController.create({
+      component: DetailsHerramientaComponent,
+      componentProps: {team: this.newHerramienta},
+      mode: 'ios',
+      swipeToClose: true,
+
+    });
+    return await modal.present();
+
+    }
 
 
 
 
 }
 
-
-/* export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  id: string
-}
- */
