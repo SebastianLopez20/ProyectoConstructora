@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar class="toolb">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="menubodega" class="colormenu"></ion-back-button>
-    </ion-buttons>
+   <ion-button [routerLink]="['/menubodega']" routerLinkActive="router-link-active"  class="botn" slot="start">
+     <ion-icon size="large"name="grid"></ion-icon>
+   </ion-button>
     <ion-title class="titulo">
       GESTION DE HERRAMIENTAS
     </ion-title>
@@ -14,7 +14,7 @@
 
 
     <ion-button [routerLink]="['/addherramientas']" class="agregar" >
-      <ion-icon slot='end' name="add-circle"></ion-icon>
+      <ion-icon size="large" slot='end' name="add-circle"></ion-icon>
       Agregar</ion-button>
 
 

@@ -19,8 +19,27 @@ th{
 td {
   border: 1px rgb(0, 0, 0) solid;
   text-align: center;
+  min-width: 100%;
 }
+.botn{
+  min-width: 10%;
+  --background:#0751f19c;
+  margin-left: 2%;
 
+}
+.backbutton{
+  min-width: 10%;
+  --background:#0751f185;
+  margin-left: 2%;
+    color: black;
+
+}
+.iconye{
+  color: rgb(44, 247, 61);
+}
+.icontrash{
+  color: rgba(238, 55, 55, 0.986);
+}
 
 #taula {
 width: 100%;

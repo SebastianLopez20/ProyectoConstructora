@@ -47,5 +47,10 @@ export class VerPedidoComponent implements OnInit {
     })
 
   }
+  deletDoc(id: string){
+    const path = 'Pedidos';
+    console.log('newPedido id -', id);
+    this.database.deleteDoc(path, id )
+  }
 
 }

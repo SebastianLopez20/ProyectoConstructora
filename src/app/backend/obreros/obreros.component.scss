@@ -7,6 +7,7 @@
     text-align: center;
     --color: black;
     font-weight: bolder;
+    margin-left: 10%;
   }
   .pie{
     --background:#2196F3;
@@ -22,13 +23,22 @@ ion-col{
 .colormenu{
     color: black;
 }
+.botn{
+  min-width: 10%;
+  --background:#ee1c1c9d;
+  margin-right: 2%;
+
+}
 .agregar{
-    --background: #2196F3;
-    --color: black;
-    --background-hover:green;
-    margin-top:2% ;
-    margin-left: 2%;
-    margin-bottom: 3%;
+  --background: #2ddb53;
+  --color: black;
+  --background-hover:green;
+  margin-top:2% ;
+  margin-left: 2%;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: medium;
 }
 td {
     border: 1px rgb(0, 0, 0) solid;
@@ -69,6 +79,13 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 th{
   min-width: 100px;
 }
+.iconeye{
+  color: #2196F3;
+}
+.icontrash{
+  color: rgba(238, 55, 55, 0.986);
+}
+
 
 
 

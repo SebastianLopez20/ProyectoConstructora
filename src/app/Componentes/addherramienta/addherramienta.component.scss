@@ -1,5 +1,4 @@
 .toolb{
-    margin-top: 2%;
     --background:#2196F3;
 
 }
@@ -7,6 +6,7 @@
     text-align: center;
     --color: black;
     font-weight: bolder;
+    margin-bottom: 2%;
   }
   .pie{
     --background:#2196F3;
@@ -19,8 +19,16 @@
     --color: black;
     text-align: center;
 }
+.botn{
+  min-width: 10%;
+  --background:#0751f19c;
+  margin-left: 2%;
+
+}
 .itm{
-    --background:#454546;
+  --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
+    color: black;
+    font-weight: bolder;
 }
 .item{
     margin-right: 3%;
@@ -32,7 +40,7 @@
     margin-bottom: 3%;
     margin-right: 3%;
     margin-left: 3%;
-    --background:#454546;
+    --background:#030303;
     margin-top: 3%;
 }
 .boton{
@@ -45,8 +53,15 @@
 
 
 }
+.titltecard{
+  color: #000000;
+}
 .backbutton{
+  min-width: 10%;
+  --background:#0751f185;
+  margin-left: 2%;
     color: black;
+
 }
 .hr{
     height: 3px;
@@ -78,5 +93,5 @@
 }
 
 .iconimg{
-    color: #f0f0ec;
+    color: #000000;
 }

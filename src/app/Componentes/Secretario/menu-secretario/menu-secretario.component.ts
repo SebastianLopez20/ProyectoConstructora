@@ -9,6 +9,11 @@ export class MenuSecretarioComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const hoy = new Date();
+    const idhoy = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDate()
+
+
+  }
 
 }

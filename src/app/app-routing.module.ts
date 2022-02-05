@@ -20,9 +20,11 @@ import { canActivate } from '@angular/fire/compat/auth-guard';
 
 
 const uidAdmin = 'lXciElVmN5UbB2vwy4dGkiRxf3p1';
-const uidBodega = 'ZRhhqF2A27SvWuJKtXuXO0K7gw33'
+const uidBodega = 'ZRhhqF2A27SvWuJKtXuXO0K7gw33';
+const uidSecretaria= 'GAdPax7A0lR5lrxVVEtrK09stVQ2';
 const onlyAdmin = () => map((user: any) => !!user && (user.uid === uidAdmin));
 const onlyBodega = () => map ((user : any) => !!user && (user.uid === uidBodega));
+const onlySecre = () => map ((user : any) => !!user && (user.uid === uidSecretaria));
 
 
 
@@ -30,7 +32,7 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
-  { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard]},
+  { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlySecre)},
   {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},

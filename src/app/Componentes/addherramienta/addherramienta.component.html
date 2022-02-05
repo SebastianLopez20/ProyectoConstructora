@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="herramientas" class="backbutton"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo">Agregar Herramienta</ion-title>
+    <ion-button [routerLink]="['/menubodega']" routerLinkActive="router-link-active"  class="botn" slot="end">
+      <ion-icon size="large"name="grid"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-justify-content-center" class="titulo">Agregar Herramienta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -42,7 +45,7 @@
 
     <ion-card>
       <ion-card-header class="cardh">
-        <ion-card-title>Imagen Seleccionada</ion-card-title>
+        <ion-card-title class="titltecard">Imagen Seleccionada</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>

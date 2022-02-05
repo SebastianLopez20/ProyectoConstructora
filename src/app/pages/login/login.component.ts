@@ -43,6 +43,12 @@ export class LoginComponent implements OnInit {
         this.interaction.closeLoading();
         this.interaction.presentToast('Ingresado con exito');
       }
+      if(thiscorreo == 'secretaria@taipelopez.com'){
+        await this.interaction.presentLoading('Ingresando')
+        this.router.navigate(['/menusecre'])
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Ingresado con exito');
+      }
 
      }
 

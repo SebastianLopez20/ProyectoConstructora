@@ -1,5 +1,4 @@
 .toolb{
-    margin-top: 2%;
     --background:#2196F3;
 
 
@@ -23,16 +22,25 @@
 ion-col{
     color: white;
 }
+.botn{
+  min-width: 10%;
+  --background:#0751f19c;
+  margin-left: 2%;
+
+}
 .colormenu{
     color: black;
 }
 .agregar{
-    --background: #2196F3;
-    --color: black;
-    --background-hover:green;
-    margin-top:2% ;
-    margin-left: 2%;
-    margin-bottom: 3%;
+  --background: #2ddb53;
+  --color: black;
+  --background-hover:green;
+  margin-top:2% ;
+  margin-left: 2%;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: medium;
 }
 td {
     border: 1px rgb(0, 0, 0) solid;

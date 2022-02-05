@@ -23,6 +23,12 @@
 .colormenu{
     color: black;
 }
+.botn{
+  min-width: 10%;
+  --background:#0751f19c;
+  margin-left: 2%;
+
+}
 .item{
   --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
   margin-top: 3%;
@@ -44,12 +50,14 @@
   --background:linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
 }
 .verp{
+  max-width: 50%;
   margin-top: 15%;
   color: black;
-  justify-content: center;
   margin: auto;
   width: 80%;
   font-weight: bolder;
+  margin-left: 4%;
+  font-size: medium;
   --background:linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
 }
 #ion-sel-0-lbl{

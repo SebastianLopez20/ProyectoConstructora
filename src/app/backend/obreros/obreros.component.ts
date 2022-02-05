@@ -1,3 +1,5 @@
+import { AuthService } from './../../services/auth.service';
+import { InteractionService } from './../../services/interaction.service';
 import { ModalController } from '@ionic/angular';
 import { DetailsObreroComponent } from './../details-obrero/details-obrero.component';
 import { ObreroI } from './../../models/models';
@@ -5,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-obreros',
@@ -30,7 +33,10 @@ dataSource: any
 
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
-              public modalController: ModalController,) {
+              public modalController: ModalController,
+              private auth: AuthService,
+              private interaction: InteractionService,
+              private router: Router) {
                 this. loadInfo();
               }
 
@@ -80,5 +86,11 @@ dataSource: any
     return await modal.present();
 
     }
+    async logout(){
+      await this.auth.logout();
+        this.interaction.presentToast('Sesion Cerrada')
+        this.router.navigate(['login']);
+
+      }
 
 }

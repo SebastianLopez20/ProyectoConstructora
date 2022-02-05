@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar class="toolb">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="pedido" class="colormenu"></ion-back-button>
+      <ion-back-button class="backbutton" defaultHref="pedido"></ion-back-button>
     </ion-buttons>
+    <ion-button [routerLink]="['/menubodega']" routerLinkActive="router-link-active"  class="botn" slot="end">
+      <ion-icon size="large"name="grid"></ion-icon>
+    </ion-button>
     <ion-title class="titulo">
       GESTION DE PEDIDOS
     </ion-title>
@@ -32,7 +35,7 @@
       <ng-container matColumnDef="pedido">
         <th size="3" mat-header-cell *matHeaderCellDef> Pedido </th>
         <td mat-cell *matCellDef="let newPedido">
-          <ion-input  [(ngModel)]="newPedido.pedido"></ion-input>
+          <ion-input  [(ngModel)]="newPedido.pedido"> </ion-input>
         </td>
       </ng-container>
 
@@ -56,10 +59,14 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let newPedido">
+          <ion-buttons>
             <ion-button>
-              Devuelto
-              <ion-icon class="devuelto" slot="end" name="checkbox-sharp"></ion-icon>
+              <ion-icon class="iconye" slot="icon-only" name="checkbox"></ion-icon>
             </ion-button>
+              <ion-button (click)="deletDoc(newPedido.id)">
+                <ion-icon class="icontrash" slot="icon-only" name="trash-sharp"></ion-icon>
+              </ion-button>
+          </ion-buttons>
         </td>
       </ng-container>
 

@@ -7,13 +7,17 @@
   <img class="logo" src="../assets/icon/Captura.JPG" alt="">
   <ion-item class="itm">
 
-    <ion-label class="labelmail" position="floating">Correo Electronico</ion-label>
-    <ion-input [(ngModel)]="credenciales.correo" type="email" name="email"></ion-input>
+    <ion-label class="labelmail" position="floating">
+      Correo Electronico</ion-label>
+    <ion-input [(ngModel)]="credenciales.correo" type="email" name="email">
+    </ion-input>
+    <ion-icon  class="iconi" slot="end" name="mail"></ion-icon>
   </ion-item>
   <ion-item class="itm" >
 
     <ion-label class="labelmail" position="floating">Contraseña</ion-label>
     <ion-input [(ngModel)]="credenciales.password" type="password" name="password"></ion-input>
+    <ion-icon  class="iconi" slot="end" name="lock-closed"></ion-icon>
   </ion-item>
 
 

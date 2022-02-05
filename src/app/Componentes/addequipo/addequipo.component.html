@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="equipos" class="backbutton"></ion-back-button>
     </ion-buttons>
+    <ion-button [routerLink]="['/menubodega']" routerLinkActive="router-link-active"  class="botn" slot="end">
+      <ion-icon size="large"name="grid"></ion-icon>
+    </ion-button>
     <ion-title class="titulo">Agregar Equipos</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -41,7 +44,7 @@
 
     <ion-card>
       <ion-card-header class="cardh">
-        <ion-card-title>Imagen Seleccionada</ion-card-title>
+        <ion-card-title class="titlecard">Imagen Seleccionada</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>

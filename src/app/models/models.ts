@@ -6,6 +6,7 @@ export interface ObreroI{
         telefono: string;
         foto: string;
         id: string;
+        checked? : boolean;
 
 }
 
@@ -42,3 +43,5 @@ export interface PedidoI{
     tipo: any;
 
 }
+//formato sugerido: 2022-02-20 ion-date
+
