@@ -43,5 +43,14 @@ export interface PedidoI{
     tipo: any;
 
 }
+
+export interface AsistenciaI{
+  obrero: any;
+  chehcked: boolean;
+  fecha: Date | any;
+
+
+
+}
 //formato sugerido: 2022-02-20 ion-date
 

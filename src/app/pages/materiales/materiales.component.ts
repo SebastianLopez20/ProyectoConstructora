@@ -51,19 +51,22 @@ export class MaterialesComponent implements OnInit {
 
   }
 
-  loadInfo() {
-    this.interaction.presentLoading("Cargando datos")
+  async loadInfo() {
+    await this.interaction.presentLoading("Cargando datos")
       const path = 'Materiales';
       this.database.getCollection<MaterialI>(path).subscribe( res => {
+
+        if(this.ELEMENT_DATA.length == 0){
+          this.interaction.closeLoading();
+          this.interaction.presentToast('Datos Cargados');
+        }
 
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-          this.interaction.closeLoading();
           }
       });
-      this.interaction.presentToast("Datos Cargados");
   }
   deletDoc(id: string){
     const path = 'Materiales';

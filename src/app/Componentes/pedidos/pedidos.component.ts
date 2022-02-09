@@ -1,8 +1,10 @@
 import { InteractionService } from './../../services/interaction.service';
 import { FirestoreService } from './../../services/firestore.service';
-
+import { Router,ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { ObreroI, PedidoI, HerramientaI, EquipoI } from 'src/app/models/models';
+import { RouterLinkActive } from '@angular/router';
+import { IonNavLink, RouterLinkDelegate } from '@ionic/angular';
 
 @Component({
   selector: 'app-pedidos',
@@ -35,7 +37,10 @@ export class PedidosComponent implements OnInit {
 
   constructor(
                private database: FirestoreService,
-              private interaction: InteractionService,) {
+              private interaction: InteractionService,
+              private router: Router,
+
+              ) {
                 this.loadObreros();
                 const hoy= new Date(); //dentro de los parentesis poner el formato de fecha obtenido de ionic
                 const fechaInicial = hoy;
@@ -133,15 +138,21 @@ selectEquipo(ev: any) {
 
 async createPedido() {
   console.log('pedido', this.newPedido);
-  this.interaction.presentLoading('Creando Pedido')
+  await this.interaction.presentLoading('Creando Pedido')
      const path = 'Pedidos';
      const name = this.newPedido.obrero
      const id = this.database.getId();
      this.newPedido.id = id;
      this.database.createDoc(this.newPedido, path, id).then(() => {
         this.interaction.closeLoading();
-        this.interaction.presentToast('Guardado Correctamente')
+        this.interaction.presentToast('Pedido Creado')
+        this.router.navigate(['verpedidos']);
+
+
+
      })
+
+
 
 
 

@@ -1,5 +1,6 @@
 th{
-  min-width: 100px;
+  min-width: 100%;
+  max-height: 100%;
 }
 .toolb{
   --background:#2196F3;
@@ -9,7 +10,18 @@ th{
 .colormenu{
   color: black;
 }
+.itm{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 15px;
+  --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
+  box-shadow: -1px 3px 5px 0px rgba(48, 46, 46, 0.288);
+  color: black;
+  font-weight: bolder;
 
+
+}
 .titulo{
   text-align: center;
   --color: black;

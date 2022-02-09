@@ -1,3 +1,5 @@
+import { VerAsistenciaComponent } from './pages/ver-asistencia/ver-asistencia.component';
+import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 import { DetailsHerramientaComponent } from './Componentes/details-herramienta/details-herramienta.component';
 import { DetailsObreroComponent } from './backend/details-obrero/details-obrero.component';
 import { DetailsMaterialComponent } from './Componentes/details-material/details-material.component';
@@ -60,6 +62,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     DetailsHerramientaComponent,
     DetailsMaterialComponent,
     DetailsObreroComponent,
+    AsistenciaComponent,
+    VerAsistenciaComponent,
 
   ],
   entryComponents: [],

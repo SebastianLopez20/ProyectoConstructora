@@ -1,22 +1,16 @@
 <ion-header>
   <ion-toolbar class="toolb">
-    <ion-button (click)="logout()" class="botn" slot="end" >
-      <ion-icon size="large"  name="exit"></ion-icon>
-    </ion-button>
+    <ion-button [routerLink]="['/menusecre']" routerLinkActive="router-link-active"  class="botn" slot="start">
+     <ion-icon size="large"name="grid"></ion-icon>
+   </ion-button>
     <ion-title class="titulo">
-      GESTION DE OBREROS
+      TOMAR ASISTENCIA
     </ion-title>
   </ion-toolbar>
 
 </ion-header>
 
   <ion-content>
-
-
-    <ion-button [routerLink]="['/addobreros']" class="agregar" >
-      <ion-icon size="large" slot='end' name="add-circle"></ion-icon>
-      Agregar</ion-button>
-
 
 <!--     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
@@ -38,7 +32,7 @@
       <ng-container matColumnDef="nombre">
         <th  mat-header-cell *matHeaderCellDef> Nombre </th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.nombre"></ion-input>
+          <ion-label>{{newObrero.nombre}}</ion-label>
         </td>
       </ng-container>
 
@@ -46,30 +40,22 @@
       <ng-container matColumnDef="apellido">
         <th  mat-header-cell *matHeaderCellDef> Apellido </th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.apellido"></ion-input>
+          <ion-label>{{newObrero.apellido}}</ion-label>
         </td>
       </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="cedula">
-        <th  mat-header-cell *matHeaderCellDef> Cedula</th>
-        <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.cedula"></ion-input>
-        </td>
-      </ng-container>
-
       <!-- Botones Column -->
       <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>Acciones </th>
+        <th mat-header-cell *matHeaderCellDef>Asistencia</th>
         <td mat-cell *matCellDef="let newObrero">
-          <ion-buttons>
-            <ion-button (click)="verDetalles(newObrero)">
-              <ion-icon class="iconeye" slot="icon-only" name="create"></ion-icon>
-            </ion-button>
-              <ion-button (click)="deletDoc(newObrero.id)">
-                <ion-icon class="icontrash" slot="icon-only" name="trash-sharp"></ion-icon>
+
+              <ion-button  color="success" class="lista">
+                <ion-icon size="large" class="iconeye" name="checkmark-circle"></ion-icon>
               </ion-button>
-          </ion-buttons>
+              <ion-button  color="danger" class="listax">
+                <ion-icon size="large" class="iconeye" name="close-circle"></ion-icon>
+              </ion-button>
+
+
         </td>
       </ng-container>
 
@@ -85,5 +71,3 @@
     </table>
   </div>
   </ion-content>
-
-

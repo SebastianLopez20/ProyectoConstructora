@@ -1,3 +1,5 @@
+import { VerAsistenciaComponent } from './pages/ver-asistencia/ver-asistencia.component';
+import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 import { VerPedidoComponent } from './Componentes/ver-pedido/ver-pedido.component';
 import { PedidosComponent } from './Componentes/pedidos/pedidos.component';
 
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'menubodega', component: MenuBodegueroComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   { path: 'menusecre', component: MenuSecretarioComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlySecre)},
+  { path: 'asistencia', component: AsistenciaComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlySecre)},
+  { path: 'verasistencia', component: VerAsistenciaComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlySecre)},
   {path: 'herramientas', component: HerramientasComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'equipos', component: EquiposComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'materiales', component: MaterialesComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},

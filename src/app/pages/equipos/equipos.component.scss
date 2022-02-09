@@ -19,6 +19,7 @@
     --color: black;
     text-align: center;
 }
+
 ion-col{
     color: white;
 }
@@ -45,9 +46,14 @@ ion-col{
 td {
     border: 1px rgb(0, 0, 0) solid;
     text-align: center;
+    min-width: 100%;
+    max-height: 100%;
+    max-width: 100%;
 }
 th{
+  max-width: 100%;
   min-width: 100px;
+  max-height: 100%;
 }
 
 

@@ -62,14 +62,17 @@ newHerramienta : HerramientaI ={
       const path = 'Herramientas';
       this.database.getCollection<HerramientaI>(path).subscribe( res => {
 
+        if(this.ELEMENT_DATA.length == 0){
+          this.interaccion.closeLoading();
+          this.interaccion.presentToast('Datos Cargados');
+        }
+
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-          this.interaccion.closeLoading();
           }
       });
-      this.interaccion.presentToast("Datos Cargados");
   }
 
   deletDoc(id: string){

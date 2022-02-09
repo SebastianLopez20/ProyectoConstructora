@@ -35,14 +35,16 @@ export class VerPedidoComponent implements OnInit {
     const path = "Pedidos/";
     this.database.getCollection<PedidoI>(path).subscribe(res => {
 
+      if(this.ELEMENT_DATA.length == 0){
+        this.interaccion.closeLoading();
+        this.interaccion.presentToast('Datos Cargados');
+      }
+
       if(res){
         this.ELEMENT_DATA = res;
         console.log('res -> ', this.ELEMENT_DATA);
         this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-        this.interaccion.closeLoading();
       }
-
-      this.interaccion.presentToast("Datos Cargados");
 
     })
 

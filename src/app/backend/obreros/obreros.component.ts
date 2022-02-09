@@ -54,9 +54,15 @@ dataSource: any
 
   }
 
-  loadInfo() {
+  async loadInfo() {
+    await this.interaction.presentLoading("Cargando Obreros");
       const path = 'Obreros';
       this.database.getCollection<ObreroI>(path).subscribe( res => {
+
+        if(this.ELEMENT_DATA.length == 0){
+          this.interaction.closeLoading();
+          this.interaction.presentToast('Datos Cargados');
+        }
 
         if (res) {
           this.ELEMENT_DATA = res;
