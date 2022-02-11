@@ -15,8 +15,13 @@
 <ion-content>
     <ion-item class="itm">
       <ion-label>Ver por Fecha</ion-label>
-      <ion-datetime displayFormat="MMM-DD-YYYY"></ion-datetime>
-      <ion-icon slot="end" name="calendar"></ion-icon>
+      <ion-datetime [(ngModel)]="fechaelegida"  displayFormat="YYYY-MMM-DD"
+      (ionChange)="fechaElegida($event)"
+      mode="ios"
+      cancelText="Cancelar"
+      doneText="Aceptar"
+      monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"></ion-datetime>
+      <ion-icon class="calend" slot="end" name="calendar"></ion-icon>
     </ion-item>
   <ion-button  class="agregar" >
     <ion-icon slot='end' name="checkbox"></ion-icon>
@@ -53,7 +58,7 @@
       <ng-container matColumnDef="estado">
         <th size="3" mat-header-cell *matHeaderCellDef> Estado </th>
         <td mat-cell *matCellDef="let newPedido">
-          <ion-input [(ngModel)]="newPedido.estado"></ion-input>
+          <ion-label>{{newPedido.estado}}</ion-label>
         </td>
       </ng-container>
 
@@ -65,7 +70,7 @@
             <ion-button>
               <ion-icon class="iconye" slot="icon-only" name="checkbox"></ion-icon>
             </ion-button>
-              <ion-button (click)="deletDoc(newPedido.id)">
+              <ion-button (click)="presentAlertConfirm(newPedido.id)">
                 <ion-icon class="icontrash" slot="icon-only" name="trash-sharp"></ion-icon>
               </ion-button>
           </ion-buttons>

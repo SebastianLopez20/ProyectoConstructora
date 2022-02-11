@@ -1,5 +1,5 @@
 import { DetailsHerramientaComponent } from './../../Componentes/details-herramienta/details-herramienta.component';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
@@ -36,6 +36,7 @@ newHerramienta : HerramientaI ={
               private database: FirestoreService,
               private interaccion: InteractionService,
               public modalController: ModalController,
+              public alertController: AlertController
 
     ) {
 
@@ -78,8 +79,27 @@ newHerramienta : HerramientaI ={
   deletDoc(id: string){
     const path = 'Herramientas';
     console.log('newHerramienta id -', id);
-
     this.database.deleteDoc(path, id )
+    this.interaccion.presentToast("Herramienta Eliminada")
+  }
+  async presentAlertConfirm(id: string) {
+    const alert = await this.alertController.create({
+      header: '¿Eliminar Archivo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+
+        }, {
+          text: 'Eliminar',
+          handler: () => {
+            this.deletDoc(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   async verDetalles(herramienta: HerramientaI){

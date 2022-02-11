@@ -16,7 +16,7 @@ export class MenuSecretarioComponent implements OnInit {
 
   ngOnInit() {
     const hoy = new Date();
-    const idhoy = hoy.getFullYear() + '-' + hoy.getMonth()+1  + '-' + hoy.getDate();
+    const idhoy = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDate();
     console.log("fecha", idhoy);
     console.log("fecha", hoy);
 

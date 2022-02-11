@@ -1,4 +1,4 @@
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { DetailsMaterialComponent } from './../../Componentes/details-material/details-material.component';
 import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
@@ -33,6 +33,7 @@ export class MaterialesComponent implements OnInit {
               private database: FirestoreService,
               private interaction: InteractionService,
               public modalController: ModalController,
+              public alertController: AlertController
               ) {
                 this. loadInfo()
               }
@@ -71,8 +72,29 @@ export class MaterialesComponent implements OnInit {
   deletDoc(id: string){
     const path = 'Materiales';
     console.log('newMaterial id -', id);
-
     this.database.deleteDoc(path, id )
+    this.interaction.presentToast("Material Eliminado")
+  }
+
+  async presentAlertConfirm(id: string) {
+    const alert = await this.alertController.create({
+      header: '¿Eliminar Archivo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Eliminar',
+          cssClass: 'primary',
+          handler: () => {
+            this.deletDoc(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
   async verDetalles(material: MaterialI ){
   console.log('detalles', material);

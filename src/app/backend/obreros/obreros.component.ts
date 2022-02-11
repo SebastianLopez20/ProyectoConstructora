@@ -1,6 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { InteractionService } from './../../services/interaction.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { DetailsObreroComponent } from './../details-obrero/details-obrero.component';
 import { ObreroI } from './../../models/models';
 import { Component, OnInit } from '@angular/core';
@@ -36,7 +36,8 @@ dataSource: any
               public modalController: ModalController,
               private auth: AuthService,
               private interaction: InteractionService,
-              private router: Router) {
+              private router: Router,
+              public alertController: AlertController,) {
                 this. loadInfo();
               }
 
@@ -75,8 +76,29 @@ dataSource: any
   deletDoc(id: string){
     const path = 'Obreros';
     console.log('newObrero id -', id);
+    this.database.deleteDoc(path, id );
+    this.interaction.presentToast("Obrero Eliminado");
+  }
 
-    this.database.deleteDoc(path, id )
+  async presentAlertConfirm(id: string) {
+    const alert = await this.alertController.create({
+      header: '¿Eliminar Archivo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Eliminar',
+          cssClass: 'primary',
+          handler: () => {
+            this.deletDoc(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   async verDetalles(obrero: ObreroI){

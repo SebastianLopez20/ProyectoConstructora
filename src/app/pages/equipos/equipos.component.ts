@@ -5,7 +5,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
 import { EquipoI } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 
 
 @Component({
@@ -32,7 +32,8 @@ export class EquiposComponent implements OnInit {
   constructor(private tabla: MatTableModule,
              private database: FirestoreService,
              private interaction: InteractionService,
-             public modalController: ModalController,) {
+             public modalController: ModalController,
+             public alertController: AlertController) {
               this. loadInfo()
              }
 
@@ -71,8 +72,29 @@ export class EquiposComponent implements OnInit {
   deletDoc(id: string){
     const path = 'Equipos';
     console.log('newEquipo id -', id);
-
     this.database.deleteDoc(path, id )
+    this.interaction.presentToast("Equipo Eliminado");
+  }
+
+  async presentAlertConfirm(id: string) {
+    const alert = await this.alertController.create({
+      header: '¿Eliminar Archivo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Eliminar',
+          cssClass: 'primary',
+          handler: () => {
+            this.deletDoc(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
  async verDetalles(equipo: EquipoI){
