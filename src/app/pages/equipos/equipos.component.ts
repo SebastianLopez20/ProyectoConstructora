@@ -79,6 +79,7 @@ export class EquiposComponent implements OnInit {
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
       header: '¿Eliminar Archivo?',
+      cssClass: 'alerts',
       buttons: [
         {
           text: 'Cancelar',

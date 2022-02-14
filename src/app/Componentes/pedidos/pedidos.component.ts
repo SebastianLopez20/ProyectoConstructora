@@ -24,6 +24,7 @@ export class PedidosComponent implements OnInit {
 
   newPedido: PedidoI = {
     obrero: null,
+    obreroAp: null,
     pedido: null,
     estado: 'pedido',
     fecha: new Date(),
@@ -72,6 +73,7 @@ export class PedidosComponent implements OnInit {
   selectObrero(ev: any) {
       console.log('evselectob -', this.obreros[ev.detail.value]);
       this.newPedido.obrero = this.obreros[ev.detail.value].nombre;
+      this.newPedido.obreroAp= this.obreros[ev.detail.value].apellido;
       console.log('obrero', this.newPedido.obrero);
   }
 

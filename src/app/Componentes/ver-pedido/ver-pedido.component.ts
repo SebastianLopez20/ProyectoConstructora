@@ -1,10 +1,11 @@
+import { DetailsEquipoComponent } from './../details-equipo/details-equipo.component';
 import { InteractionService } from './../../services/interaction.service';
 import { PedidoI, ObreroI } from './../../models/models';
 import { FirestoreService } from './../../services/firestore.service';
 import { Component, OnInit, Input } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ver-pedido',
@@ -14,6 +15,16 @@ import { AlertController } from '@ionic/angular';
 export class VerPedidoComponent implements OnInit {
 
   fechaelegida: Date = new Date();
+  thisPedido : PedidoI = {
+    obrero: null,
+    obreroAp: null,
+    pedido: null,
+    estado: 'pedido',
+    fecha: null,
+    id: '',
+    tipo: null
+
+  }
   fechaFormato: String;
   ELEMENT_DATA: PedidoI[] = [
   ];
@@ -22,7 +33,8 @@ export class VerPedidoComponent implements OnInit {
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
               private interaccion: InteractionService,
-              public alertController: AlertController
+              public alertController: AlertController,
+              public modalController: ModalController,
     ) {
       this.getPedidos();
 
@@ -62,7 +74,9 @@ export class VerPedidoComponent implements OnInit {
   console.log('fechass',fecha);
   this.fechaFormato = fecha;
   console.log('fechaF',this.fechaFormato);
+
   }
+
 
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
@@ -77,6 +91,37 @@ export class VerPedidoComponent implements OnInit {
           cssClass: 'primary',
           handler: () => {
             this.deletDoc(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  cambiarEstado(pedido: PedidoI){
+    const path = 'Pedidos';
+    const name = pedido.pedido
+    this.thisPedido = pedido;
+    console.log('detalles', pedido);
+    pedido.estado= 'devuelto';
+    this.database.updateDoc(pedido, path, pedido.id)
+    this.interaccion.presentToast("Pedido Marcado como devuelto")
+  }
+
+  async presentAlertConfirm2(pedido: PedidoI) {
+    const alert = await this.alertController.create({
+      header: '¿Marcar como devuelto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Aceptar',
+          cssClass: 'primary',
+          handler: () => {
+            this.cambiarEstado(pedido);
           }
         }
       ]

@@ -36,6 +36,7 @@ export interface EquipoI{
 
 export interface PedidoI{
     obrero: any;
+    obreroAp: any;
     pedido: any;
     estado: 'pedido'| 'devuelto';
     fecha:Date| any;
