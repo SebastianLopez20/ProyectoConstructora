@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asistencia.component.scss'],
 })
 export class AsistenciaComponent implements OnInit {
+  fechahoy: Date = new Date();
+  fecha = "";
   path = 'Obreros';
   ELEMENT_DATA: ObreroI[] = [
 
@@ -32,12 +34,18 @@ dataSource: any;
     private database: FirestoreService,
     public modalController: ModalController,
     private interaction: InteractionService,
-    private router: Router) {this. loadInfo(); }
+    private router: Router,
+  ) {this. loadInfo();
+     this.fechaHoy(); }
 
   ngOnInit() {}
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  fechaHoy (){
+    const fecha = this.database.formatDate(this.fechahoy)
+    this.fecha = fecha;
   }
 
 
@@ -65,6 +73,7 @@ dataSource: any;
           }
       });
   }
+
 
   deletDoc(id: string){
     const path = 'Obreros';

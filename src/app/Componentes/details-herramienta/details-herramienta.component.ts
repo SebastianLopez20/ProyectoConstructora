@@ -1,3 +1,4 @@
+import { InteractionService } from './../../services/interaction.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FirestorageService } from './../../services/firestorage.service';
 import { FirestoreService } from './../../services/firestore.service';
@@ -23,7 +24,8 @@ export class DetailsHerramientaComponent implements OnInit {
   @Input()team: HerramientaI;
   constructor(private ModalController: ModalController,
               private database: FirestoreService,
-              public firestorageservice: FirestorageService) { }
+              public firestorageservice: FirestorageService,
+              private interaction: InteractionService,) { }
 
   ngOnInit() {
     console.log('esto', this.team);
@@ -42,6 +44,8 @@ export class DetailsHerramientaComponent implements OnInit {
       console.log('elemento -> ', this.team);
       console.log('path',this.path)
       this.database.updateDoc(this.team, this.path, this.team.id)
+      this.interaction.presentToast("Datos Actualizados");
+      this.Cerrar();
 
     }
     async newImageUpload(event: any){

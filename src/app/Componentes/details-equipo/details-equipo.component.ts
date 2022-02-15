@@ -1,3 +1,4 @@
+import { InteractionService } from './../../services/interaction.service';
 import { FirestorageService } from './../../services/firestorage.service';
 import { FirestoreService } from './../../services/firestore.service';
 import { ModalController } from '@ionic/angular';
@@ -24,7 +25,8 @@ export class DetailsEquipoComponent implements OnInit {
   @Input() team: EquipoI;
   constructor(private ModalController: ModalController,
               private database: FirestoreService,
-              public firestorageservice: FirestorageService) { }
+              public firestorageservice: FirestorageService,
+              private interaction: InteractionService) { }
 
   ngOnInit() {
 
@@ -44,7 +46,9 @@ export class DetailsEquipoComponent implements OnInit {
     }
     console.log('elemento -> ', this.team);
     console.log('path',this.path)
-    this.database.updateDoc(this.team, this.path, this.team.id)
+    this.database.updateDoc(this.team, this.path, this.team.id);
+    this.interaction.presentToast("Datos Actualizados");
+    this.Cerrar();
 
   }
   async newImageUpload(event: any){
