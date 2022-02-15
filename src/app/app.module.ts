@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -78,7 +79,13 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

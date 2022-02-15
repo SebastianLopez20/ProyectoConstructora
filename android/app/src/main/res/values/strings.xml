@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ProyectoConstructora</string>
+    <string name="title_activity_main">ProyectoConstructora</string>
+    <string name="package_name">com.baltox.taipelopez</string>
+    <string name="custom_url_scheme">com.baltox.taipelopez</string>
+</resources>

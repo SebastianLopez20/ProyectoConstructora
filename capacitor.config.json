@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "ProyectoConstructora",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "com.baltox.taipelopez",
+  "appName": "ProyectoConstructora",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }
