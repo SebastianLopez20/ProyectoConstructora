@@ -51,9 +51,5 @@ export interface AsistenciaI{
   checked: boolean;
   fecha: Date | any;
   id: string;
-
-
-
 }
-//formato sugerido: 2022-02-20 ion-date
 
