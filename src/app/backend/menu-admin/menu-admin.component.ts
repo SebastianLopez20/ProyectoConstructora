@@ -1,15 +1,16 @@
-import { AuthService } from './../../../services/auth.service';
-import { InteractionService } from './../../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
+import { InteractionService } from 'src/app/services/interaction.service';
+
 
 @Component({
-  selector: 'app-menu-bodeguero',
-  templateUrl: './menu-bodeguero.component.html',
-  styleUrls: ['./menu-bodeguero.component.scss'],
+  selector: 'app-menu-admin',
+  templateUrl: './menu-admin.component.html',
+  styleUrls: ['./menu-admin.component.scss'],
 })
-export class MenuBodegueroComponent implements OnInit {
+export class MenuAdminComponent implements OnInit {
 
   constructor(private auth: AuthService,
     private interaction: InteractionService,
@@ -17,8 +18,6 @@ export class MenuBodegueroComponent implements OnInit {
     public alertController: AlertController) { }
 
   ngOnInit() {}
-
-
   async logout(){
     await this.auth.logout();
       this.interaction.presentToast('Sesion Cerrada')

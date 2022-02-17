@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-button (click)="presentAlertConfirm()" class="botn" slot="end" >
+      <ion-icon size="large"  name="exit"></ion-icon>
+    </ion-button>
+    <ion-title class="titulo">
+      Menu Administrador
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-margin-top">
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col  class="ion-justify-content-center" >
+        <ion-card class="card1">
+          <ion-card-title class="texto">OBREROS</ion-card-title>
+          <ion-card-content>
+           <img [routerLink]="['/obreros']" routerLinkActive="router-link-active"   class="icono1" src="assets/icon/obrero.png" alt="">
+
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col  class="ion-justify-content-center" >
+        <ion-card class="card1">
+          <ion-card-title class="texto">HERRAMIENTAS</ion-card-title>
+          <ion-card-content>
+           <img [routerLink]="['/herramientasadmin']" routerLinkActive="router-link-active"   class="icono1" src="assets/icon/herramientas.png" alt="">
+
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center">
+        <ion-card class="card2">
+
+            <ion-card-title class="texto">EQUIPOS</ion-card-title>
+
+
+          <ion-card-content>
+           <img [routerLink]="['/equiposadmin']" routerLinkActive="router-link-active"  class="icono1" src="assets/icon/equipos.png" alt="">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col  class="ion-text-center">
+
+      <ion-card class="card3">
+
+      <ion-card-title class="texto">MATERIALES</ion-card-title>
+
+
+    <ion-card-content>
+     <img [routerLink]="['/materialesadmin']" routerLinkActive="router-link-active"  class="icono1" src="assets/icon/cemento.png" alt="">
+    </ion-card-content>
+  </ion-card>
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col  class="ion-text-center">
+        <ion-card class="card4">
+
+            <ion-card-title class="texto">PEDIDOS</ion-card-title>
+
+
+          <ion-card-content>
+           <img [routerLink]="['/pedidosadmin']" routerLinkActive="router-link-active"  class="icono1" src="assets/icon/listapedidos.png" alt="">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center">
+        <ion-card class="card5">
+
+            <ion-card-title class="texto">VER ASISTENCIA</ion-card-title>
+
+
+          <ion-card-content>
+           <img [routerLink]="['/verasistencia']" routerLinkActive="router-link-active"  class="icono1" src="assets/icon/portapapeles.png" alt="">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

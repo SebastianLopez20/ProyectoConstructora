@@ -14,7 +14,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 })
 export class VerPedidoComponent implements OnInit {
 
-  fechaelegida: Date = new Date();
+  fechaelegida: string = (new Date()).toISOString();
   thisPedido : PedidoI = {
     obrero: null,
     obreroAp: null,
@@ -80,7 +80,8 @@ export class VerPedidoComponent implements OnInit {
 
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
-      header: '¿Eliminar Archivo?',
+      header: '¿Eliminar Pedido?',
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'Cancelar',

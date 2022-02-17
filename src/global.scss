@@ -49,12 +49,33 @@
     --ion-background-color: linear-gradient(to bottom, #C6C9E6, #5D58F5);
 }
 
-.alert-head.sc-ion-alert-md {
+ .my-custom-class .alert-button-inner{
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-weight: bolder;
+ }
+ .my-custom-class .alert-wrapper{
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 4px;
+  padding-inline-start: 4px;
+  -webkit-padding-end: 4px;
+  padding-inline-end: 4px;
   background: rgba(255, 0, 0, 0.829);
   color: black;
+  font-weight: bolder;
+ }
+.my-custom-class .picker-toolbar-button{
+  -ms-flex: 1;
+  flex: 1;
+  text-align: end;
+  background: #367af5;
+}
+.my-custom-class .alert-head {
+  background: rgba(214, 47, 47, 0.829);
 
 }
-.alert-title.sc-ion-alert-md {
+.my-custom-class .alert-title{
   color: black;
   --ion-text-color:black;
   font-size: 20px;
@@ -62,26 +83,9 @@
   font-weight: bolder;
   text-align: center;
 }
-.alert-head.sc-ion-alert-md+.alert-message.sc-ion-alert-md {
-  padding-top: 0;
-  background: rgba(241, 42, 42, 0.842);
-}
-.alert-message.sc-ion-alert-md {
-  max-height: 266px;
-  font-size: 16px;
-  color: black;
-  font-weight: bolder;
-}
-.alert-button-group.sc-ion-alert-md {
-  padding-left: unset;
-  padding-right: unset;
-  -webkit-padding-start: 8px;
-  padding-inline-start: 8px;
-  -webkit-padding-end: 8px;
-  padding-inline-end: 8px;
+
+.my-custom-class .alert-button-group{
   justify-content: center;
-}
-.alert-button-group.sc-ion-alert-md {
   padding-left: unset;
   padding-right: unset;
   -webkit-padding-start: 8px;
@@ -90,34 +94,141 @@
   padding-inline-end: 8px;
   background: rgb(255, 255, 255);
 }
-.alert-button-inner.sc-ion-alert-md {
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  font-weight: bolder;
-}
-.alert-button.sc-ion-alert-md {
+
+.my-custom-class .alert-button{
   padding-left: unset;
   padding-right: unset;
   -webkit-padding-start: 10px;
   padding-inline-start: 10px;
   -webkit-padding-end: 10px;
   padding-inline-end: 10px;
+  margin: auto;
   background: #f15151a3;
 }
-.picker-col {
+
+.my-custom-class .picker-toolbar-button{
+  -ms-flex: 1;
+  flex: 1;
+  text-align: end;
+  background: #367af5;
+}
+.my-custom-class .alert-message{
+  max-height: 266px;
+  font-size: 16px;
+  color: black;
+  font-weight: bolder;
+}
+.my-alert-logout .alert-head {
+  background: rgb(231, 81, 81);
+}
+.my-alert-logout .alert-button-group{
+  justify-content: center;
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 8px;
+  -webkit-padding-end: 8px;
+  padding-inline-end: 8px;
+  background: rgba(223, 175, 175, 0.76);
+}
+.my-alert-logout .alert-title{
+  color: black;
+  --ion-text-color:black;
+  font-size: 20px;
+  font-weight: 500;
+  font-weight: bolder;
+  text-align: center;
+}
+.my-alert-logout .alert-button{
+   padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 10px;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  margin: auto;
+  background: #000000ce;
+  color: white;
+  --ion-text-color: white;
+}
+.my-alert-logout .alert-message{
+  max-height: 266px;
+  font-size: 16px;
+  color: black;
+  font-weight: bolder;
+}
+.my-alert-logout .picker-toolbar-button{
+  -ms-flex: 1;
+  flex: 1;
+  text-align: end;
+  background: #367af5;
+}
+.my-alert-logout .alert-button-inner{
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+}
+
+.my-custom-class1 .alert-button-inner{
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-weight: bolder;
+  justify-content: center;
+ }
+ .my-custom-class1 .alert-wrapper{
   padding-left: unset;
   padding-right: unset;
   -webkit-padding-start: 4px;
   padding-inline-start: 4px;
   -webkit-padding-end: 4px;
   padding-inline-end: 4px;
-  background: #fffefebf;
+  background: rgba(52, 138, 236, 0.877);
   color: black;
-  font-weight: bolder;
+ }
+.my-custom-class1 .alert-head {
+  background: rgb(86 150 169 / 73%);
+
 }
-.picker-toolbar-button.sc-ion-picker-ios {
+.my-custom-class1 .alert-sub-title{
+  color: black;
+  --ion-text-color:black;
+  font-size: 18px;
+  text-align: center;
+}
+
+.my-custom-class1 .alert-button-group{
+  justify-content: center;
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 8px;
+  -webkit-padding-end: 8px;
+  padding-inline-end: 8px;
+  background: #98c5e5;
+  margin: 0%;
+}
+
+.my-custom-class1 .alert-button{
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 10px;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  background: #052ceb85;
+  min-width: 80%;
+}
+
+.my-custom-class1 .picker-toolbar-button{
   -ms-flex: 1;
   flex: 1;
   text-align: end;
   background: #367af5;
 }
+.my-custom-class1 .alert-message{
+  max-height: 266px;
+  font-size: 16px;
+  color: black;
+  font-weight: bolder;
+}
+

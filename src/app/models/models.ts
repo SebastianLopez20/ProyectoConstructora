@@ -46,9 +46,11 @@ export interface PedidoI{
 }
 
 export interface AsistenciaI{
-  obrero: any;
-  chehcked: boolean;
+  nombre: string;
+  apellido: string;
+  checked: boolean;
   fecha: Date | any;
+  id: string;
 
 
 

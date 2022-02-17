@@ -78,7 +78,8 @@ export class MaterialesComponent implements OnInit {
 
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
-      header: '¿Eliminar Archivo?',
+      header: '¿Eliminar Material?',
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'Cancelar',

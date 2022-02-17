@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       }
       if(thiscorreo == 'admin@taipelopez.com'){
         await this.interaction.presentLoading('Ingresando')
-        this.router.navigate(['/obreros'])
+        this.router.navigate(['/menu-admin'])
         this.interaction.closeLoading();
         this.interaction.presentToast('Ingresado con exito');
       }

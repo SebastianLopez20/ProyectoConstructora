@@ -1,36 +1,28 @@
 .toolb{
-
   --background:#2196F3;
 
 }
-img{
-  max-width: 80%;
-  max-height:80%;
-}
-.itemcrear{
-  --background: rgba(32, 94, 228, 0);
-  color: black;
-  border: none;
-  border-style: none;
-  box-shadow: none;
- min-width: 70%;
- max-width: 70%;
-}
-.itemcrear1{
-  color: black;
-  text-align: center;
-  font-weight: bolder;
+.botn{
+min-width: 10%;
+--background:#0751f19c;
+margin-left: 2%;
 
+}
+img{
+max-width: 80%;
+max-height:80%;
 }
 .titulo{
   text-align: center;
   --color: black;
   font-weight: bolder;
-  margin-right: 10%;
 }
 .pie{
   --background:#2196F3;
-  }
+  margin-bottom: 2%;
+  border-color: black;
+  border-style: solid;
+}
 .pietitulo{
   font-weight: bolder;
   --color: black;
@@ -42,12 +34,6 @@ ion-col{
 .colormenu{
   color: black;
 }
-.botn{
-min-width: 10%;
---background:#ee1c1c9d;
-margin-right: 2%;
-
-}
 .agregar{
 --background: #2ddb53;
 --color: black;
@@ -58,25 +44,20 @@ margin-bottom: 3%;
 border-radius: 10px;
 font-weight: bolder;
 font-size: medium;
+
 }
 td {
   border: 1px rgb(0, 0, 0) solid;
   text-align: center;
 }
-.botn{
-  min-width: 10%;
-  --background:#0751f19c;
-  margin-left: 2%;
-
-}
 
 #taula {
 width: 100%;
   overflow-x:scroll;
+  margin-bottom: 3%;
   //width: 220px;
-  margin-top: 5%;
-  overflow-y: none;
 }
+
 th.mat-header-cell {
   text-align:center;
   //border: 1px rgb(15, 15, 15) solid;
@@ -106,14 +87,8 @@ th{
 min-width: 100px;
 }
 .iconeye{
-color: #020202;
+color: #2196F3;
 }
-.lista{
-  max-width: 65%;
-  margin-top: 10%;
+.icontrash{
+color: rgba(238, 55, 55, 0.986);
 }
-.listax{
-  max-width: 65%;
-  margin-bottom: 10%;
-}
-

@@ -3,7 +3,7 @@ import { InteractionService } from './../../services/interaction.service';
 import { ModalController } from '@ionic/angular';
 import { FirestoreService } from './../../services/firestore.service';
 import { MatTableModule } from '@angular/material/table';
-import { ObreroI } from './../../models/models';
+import { AsistenciaI, ObreroI } from './../../models/models';
 import {MatTableDataSource} from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,6 +16,8 @@ export class AsistenciaComponent implements OnInit {
   fechahoy: Date = new Date();
   fecha = "";
   path = 'Obreros';
+  nombre: string;
+  apellido: string;
   ELEMENT_DATA: ObreroI[] = [
 
   ];
@@ -27,6 +29,13 @@ export class AsistenciaComponent implements OnInit {
     foto: "",
     id: "",
 };
+  data : AsistenciaI={
+    nombre: null,
+    apellido: null,
+    checked: null,
+    fecha: null,
+    id: ""
+}
 displayedColumns: string[] = ['foto', 'nombre', 'apellido', 'acciones'];
 dataSource: any;
 
@@ -48,16 +57,8 @@ dataSource: any;
     this.fecha = fecha;
   }
 
-
-  editar(obrero: ObreroI) {
-    console.log('elemento -> ', obrero);
-    this.newObrero = obrero;
-    this.database.updateDoc(this.newObrero, this.path, this.newObrero.id)
-
-  }
-
   async loadInfo() {
-      await this.interaction.presentLoading("Crgando Obreros");
+      await this.interaction.presentLoading("Cargando Obreros");
       const path = 'Obreros';
       this.database.getCollection<ObreroI>(path).subscribe( res => {
 
@@ -73,13 +74,39 @@ dataSource: any;
           }
       });
   }
-
-
-  deletDoc(id: string){
-    const path = 'Obreros';
-    console.log('newObrero id -', id);
-
-    this.database.deleteDoc(path, id )
+  async crearAsistencia(){
+    await this.interaction.presentLoading('Marcando Asistencia')
+     const path = 'Asistencia';
+     const name = this.data.nombre;
+     const id = this.fecha;
+     this.data.fecha = this.fecha;
+     this.data.id = id;
+     this.data.checked = true;
+     this.data.nombre= this.nombre;
+     this.data.apellido = this.apellido;
+     this.database.createDoc(this.data, path, id).then(() => {
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Asistencia Marcada')
+     })
   }
+
+  async noAsistencia(){
+    await this.interaction.presentLoading('Marcando Ausencia')
+     const path = 'Asistencia';
+     const name = this.data.nombre;
+     const id = this.fecha;
+     this.data.fecha = this.fecha;
+     this.data.id = id;
+     this.data.checked = false;
+     this.data.nombre= this.nombre;
+     this.data.apellido = this.apellido;
+     this.database.createDoc(this.data, path, id).then(() => {
+        this.interaction.closeLoading();
+        this.interaction.presentToast('Ausencia Marcada')
+     })
+  }
+
+
+
 
 }

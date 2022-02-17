@@ -1,9 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolb">
-    <ion-buttons slot="start">
-      <ion-back-button class="backbutton" defaultHref="pedido"></ion-back-button>
-    </ion-buttons>
-    <ion-button [routerLink]="['/menubodega']" routerLinkActive="router-link-active"  class="botn" slot="end">
+    <ion-button [routerLink]="['/menu-admin']" routerLinkActive="router-link-active"  class="botn" slot="start">
       <ion-icon size="large"name="grid"></ion-icon>
     </ion-button>
     <ion-title class="titulo">
@@ -63,19 +60,6 @@
       </ng-container>
 
       <!-- Botones Column -->
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>Acciones</th>
-        <td mat-cell *matCellDef="let newPedido">
-          <ion-buttons>
-            <ion-button   (click)="presentAlertConfirm2(newPedido)">
-              <ion-icon class="iconye" slot="icon-only" name="checkbox"></ion-icon>
-            </ion-button>
-              <ion-button (click)="presentAlertConfirm(newPedido.id)">
-                <ion-icon class="icontrash" slot="icon-only" name="trash-sharp"></ion-icon>
-              </ion-button>
-          </ion-buttons>
-        </td>
-      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

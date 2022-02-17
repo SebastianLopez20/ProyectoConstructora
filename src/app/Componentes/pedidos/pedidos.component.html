@@ -23,7 +23,7 @@
   <ion-item>
     <ion-icon class="icono" slot="start" name="people-sharp"> </ion-icon>
      <ion-label id="label" class="ion-justify-content-start">OBREROS</ion-label>
-    <ion-select [value]="null" okText="Aceptar" cancelText="Cancelar"
+    <ion-select class="select" [value]="null" okText="Aceptar" cancelText="Cancelar"
     (ionChange)="selectObrero($event)">
       <ion-select-option *ngFor="let obrero of obreros, let i = index" [value]="i">{{obrero.nombre +' '+ obrero.apellido}}</ion-select-option>
     </ion-select>

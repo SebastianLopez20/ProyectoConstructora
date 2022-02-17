@@ -84,7 +84,8 @@ newHerramienta : HerramientaI ={
   }
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
-      header: '¿Eliminar Archivo?',
+      header: '¿Eliminar Herramienta?',
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'Cancelar',

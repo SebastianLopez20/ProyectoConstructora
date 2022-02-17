@@ -1,3 +1,4 @@
+import { VerHerradminComponent } from './backend/ver-herradmin/ver-herradmin.component';
 import { VerAsistenciaComponent } from './pages/ver-asistencia/ver-asistencia.component';
 import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 import { VerPedidoComponent } from './Componentes/ver-pedido/ver-pedido.component';
@@ -19,6 +20,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 import { map } from 'rxjs/operators';
 import { canActivate } from '@angular/fire/compat/auth-guard';
+import { MenuAdminComponent } from './backend/menu-admin/menu-admin.component';
+import { VerEquipadminComponent } from './backend/ver-equipadmin/ver-equipadmin.component';
+import { VerMateradminComponent } from './backend/ver-materadmin/ver-materadmin.component';
+import { VerPedidadminComponent } from './backend/ver-pedidadmin/ver-pedidadmin.component';
 
 
 const uidAdmin = 'lXciElVmN5UbB2vwy4dGkiRxf3p1';
@@ -46,7 +51,12 @@ const routes: Routes = [
   {path: 'pedido', component: PedidosComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'verpedidos', component: VerPedidoComponent, canActivate: [AngularFireAuthGuard], ...canActivate(onlyBodega)},
   {path: 'addobreros', component: AddobreroComponent, ...canActivate(onlyAdmin)},
+  {path: 'menu-admin', component: MenuAdminComponent, ...canActivate(onlyAdmin)},
   {path: 'obreros', component: ObrerosComponent, ...canActivate(onlyAdmin)},
+  {path: 'herramientasadmin', component: VerHerradminComponent, ...canActivate(onlyAdmin)},
+  {path: 'equiposadmin', component: VerEquipadminComponent, ...canActivate(onlyAdmin)},
+  {path: 'materialesadmin', component: VerMateradminComponent, ...canActivate(onlyAdmin)},
+  {path: 'pedidosadmin', component: VerPedidadminComponent, ...canActivate(onlyAdmin)},
   {path: '**', redirectTo:'login',pathMatch:'full'},
   {path: '', redirectTo:'login',pathMatch:'full'}
 

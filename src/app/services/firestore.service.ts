@@ -16,6 +16,7 @@ export class FirestoreService {
 
 
 
+
   getCollection<Obreros>(path: string){
     const collection= this.firestore.collection<Obreros>(path);
     return collection.valueChanges();
@@ -41,6 +42,8 @@ export class FirestoreService {
     const year = date.getFullYear();
     return year+"-"+month+"-"+ day;
   }
+
+
 
 
 

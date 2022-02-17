@@ -1,19 +1,17 @@
-import { DetailsEquipoComponent } from './../../Componentes/details-equipo/details-equipo.component';
-import { InteractionService } from './../../services/interaction.service';
 import { Component, OnInit } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { AlertController, ModalController } from '@ionic/angular';
 import { EquipoI } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { AlertController, ModalController } from '@ionic/angular';
-
+import { InteractionService } from 'src/app/services/interaction.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
-  selector: 'app-equipos',
-  templateUrl: './equipos.component.html',
-  styleUrls: ['./equipos.component.scss'],
+  selector: 'app-ver-equipadmin',
+  templateUrl: './ver-equipadmin.component.html',
+  styleUrls: ['./ver-equipadmin.component.scss'],
 })
-export class EquiposComponent implements OnInit {
+export class VerEquipadminComponent implements OnInit {
   path = 'Equipos';
   ELEMENT_DATA: EquipoI[] = [
 
@@ -25,31 +23,20 @@ export class EquiposComponent implements OnInit {
     cantidad: null,
     id: '',
   }
-
-
-  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad', 'acciones'];
+  displayedColumns: string[] = ['foto', 'nombre', 'descripcion', 'cantidad'];
   dataSource: any
   constructor(private tabla: MatTableModule,
-             private database: FirestoreService,
-             private interaction: InteractionService,
-             public modalController: ModalController,
-             public alertController: AlertController) {
-              this. loadInfo()
-             }
+    private database: FirestoreService,
+    private interaction: InteractionService,
+    public modalController: ModalController,
+    public alertController: AlertController) { }
 
-  ngOnInit() {}
+  ngOnInit() {this.loadInfo();}
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-  editar(equipo: EquipoI) {
-    console.log('elemento -> ', equipo);
-    this.newEquipo = equipo;
-    this.database.updateDoc(this.newEquipo, this.path, this.newEquipo.id)
-
-  }
 
   async loadInfo() {
     await this.interaction.presentLoading("Cargando Datos");
@@ -68,29 +55,20 @@ export class EquiposComponent implements OnInit {
           }
       });
 
-  }
-  deletDoc(id: string){
-    const path = 'Equipos';
-    console.log('newEquipo id -', id);
-    this.database.deleteDoc(path, id )
-    this.interaction.presentToast("Equipo Eliminado");
+      this.presentAlertConfirm1();
+
   }
 
-  async presentAlertConfirm(id: string) {
+
+  async presentAlertConfirm1() {
     const alert = await this.alertController.create({
-      header: '¿Eliminar Equipo?',
-      cssClass: 'my-custom-class',
+      subHeader: 'Como usuario "Administrador" cuenta con el privilegio unico de lectura. Para interactuar con los archivos inicie sesión desde un perfil de "Bodeguero" o "Secretaria"',
+      cssClass: 'my-custom-class1',
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Entendido',
           role: 'cancel',
           cssClass: 'secondary',
-        }, {
-          text: 'Eliminar',
-          cssClass: 'primary',
-          handler: () => {
-            this.deletDoc(id);
-          }
         }
       ]
     });
@@ -98,7 +76,7 @@ export class EquiposComponent implements OnInit {
     await alert.present();
   }
 
- async verDetalles(equipo: EquipoI){
+ /* async verDetalles(equipo: EquipoI){
   console.log('detalles', equipo);
   this.newEquipo = equipo;
  const modal = await this.modalController.create({
@@ -110,7 +88,7 @@ export class EquiposComponent implements OnInit {
   });
   return await modal.present();
 
-  }
+  } */
 
 
 }

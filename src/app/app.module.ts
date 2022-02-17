@@ -1,3 +1,5 @@
+import { VerHerradminComponent } from './backend/ver-herradmin/ver-herradmin.component';
+import { VerEquipadminComponent } from './backend/ver-equipadmin/ver-equipadmin.component';
 import { VerAsistenciaComponent } from './pages/ver-asistencia/ver-asistencia.component';
 import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
 import { DetailsHerramientaComponent } from './Componentes/details-herramienta/details-herramienta.component';
@@ -36,6 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { MenuAdminComponent } from './backend/menu-admin/menu-admin.component';
+import { VerMateradminComponent } from './backend/ver-materadmin/ver-materadmin.component';
+import { VerPedidadminComponent } from './backend/ver-pedidadmin/ver-pedidadmin.component';
 
 
 
@@ -64,6 +69,11 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     DetailsObreroComponent,
     AsistenciaComponent,
     VerAsistenciaComponent,
+    MenuAdminComponent,
+    VerEquipadminComponent,
+    VerHerradminComponent,
+    VerMateradminComponent,
+    VerPedidadminComponent
 
   ],
   entryComponents: [],
