@@ -51,5 +51,6 @@ export interface AsistenciaI{
   checked: boolean;
   fecha: Date | any;
   id: string;
+
 }
 

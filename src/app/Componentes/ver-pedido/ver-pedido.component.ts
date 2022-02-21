@@ -13,6 +13,7 @@ import { AlertController, ModalController } from '@ionic/angular';
   styleUrls: ['./ver-pedido.component.scss'],
 })
 export class VerPedidoComponent implements OnInit {
+  fechaselected = new Date();
 
   fechaelegida: string = (new Date()).toISOString();
   thisPedido : PedidoI = {
@@ -44,7 +45,19 @@ export class VerPedidoComponent implements OnInit {
   async getPedidos(){
     await this.interaccion.presentLoading("Cargando Datos");
     const path = "Pedidos/";
-    this.database.getCollection<PedidoI>(path).subscribe(res => {
+    let fechainicial= new Date(this.fechaselected);
+    fechainicial.setHours(0)
+    fechainicial.setMinutes(0)
+    fechainicial.setSeconds(0)
+    let fechafinal= new Date(this.fechaselected);
+    fechafinal.setHours(23)
+    fechafinal.setMinutes(59)
+    fechafinal.setSeconds(59)
+    console.log('fechainicial',fechainicial);
+    console.log('fechafinal',fechafinal);
+
+    this.database.getCollection2QueryOrderLimit<PedidoI>(path,'fecha','>=',fechainicial,'fecha','<=',fechafinal,100,'fecha','desc',null).subscribe(res => {
+    console.log('res',res);
 
       if(this.ELEMENT_DATA.length == 0){
         this.interaccion.closeLoading();
@@ -69,12 +82,14 @@ export class VerPedidoComponent implements OnInit {
 
   fechaElegida(event){
   console.log(event);
+  this.fechaselected = new Date(event.detail.value);
   const iondate = new Date(event.detail.value);
   const fecha = this.database.formatDate(iondate);
   console.log('fechass',fecha);
   this.fechaFormato = fecha;
   console.log('fechaF',this.fechaFormato);
-
+  this.ELEMENT_DATA = [];
+  this.getPedidos();
   }
 
 

@@ -7,6 +7,7 @@ import { AsistenciaI, ObreroI } from './../../models/models';
 import {MatTableDataSource} from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-asistencia',
   templateUrl: './asistencia.component.html',
@@ -14,12 +15,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsistenciaComponent implements OnInit {
   fechahoy: Date = new Date();
-  fecha = "";
-  path = 'Obreros';
-  nombre: string;
-  apellido: string;
+  fecha = this.database.formatDate(this.fechahoy);
   ELEMENT_DATA: ObreroI[] = [
-
   ];
   newObrero : ObreroI={
     nombre: "",
@@ -29,14 +26,19 @@ export class AsistenciaComponent implements OnInit {
     foto: "",
     id: "",
 };
-  data : AsistenciaI={
+  data : AsistenciaI= {
     nombre: null,
     apellido: null,
-    checked: null,
-    fecha: null,
-    id: ""
+    checked: false,
+    fecha: "",
+    id: "",
+
 }
-displayedColumns: string[] = ['foto', 'nombre', 'apellido', 'acciones'];
+
+obreros: ObreroI[]=[]
+asistenciahoy: AsistenciaI[]=[]
+
+displayedColumns: string[] = ['foto', 'nombre', 'apellido','checked', 'acciones'];
 dataSource: any;
 
   constructor(private tabla: MatTableModule,
@@ -47,17 +49,20 @@ dataSource: any;
   ) {this. loadInfo();
      this.fechaHoy(); }
 
-  ngOnInit() {}
+  ngOnInit() {
+   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
   fechaHoy (){
     const fecha = this.database.formatDate(this.fechahoy)
     this.fecha = fecha;
   }
-
   async loadInfo() {
+
       await this.interaction.presentLoading("Cargando Obreros");
       const path = 'Obreros';
       this.database.getCollection<ObreroI>(path).subscribe( res => {
@@ -69,42 +74,68 @@ dataSource: any;
 
         if (res) {
           this.ELEMENT_DATA = res;
+          this.obreros=res;
           console.log('res -> ', this.ELEMENT_DATA);
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+          this.loadAsistencia();
           }
       });
   }
-  async crearAsistencia(){
+
+  async loadAsistencia() {
+
+    const path = 'Asistencia/' +this.fecha+ '/obreros';
+    this.database.getSubCollection<AsistenciaI>(path).subscribe( res => {
+      if (res) {
+        this.asistenciahoy = res;
+        console.log('res -> ', this.asistenciahoy);
+        this.mathAsistencia();
+        }
+    });
+}
+
+
+  mathAsistencia() {
+        this.asistenciahoy.forEach( obreroLista => {
+             const busqueda = this.obreros.find( obrero => { return obrero.id === obreroLista.id});
+             if (busqueda) {
+              busqueda.checked =  obreroLista.checked;
+             }
+        })
+  }
+
+  async crearAsistencia(obrero: ObreroI){
+    this.newObrero = obrero;
     await this.interaction.presentLoading('Marcando Asistencia')
-     const path = 'Asistencia';
-     const name = this.data.nombre;
-     const id = this.fecha;
+     const path = "Asistencia/" + this.fecha + "/obreros";
+     this.data.apellido = obrero.apellido;
      this.data.fecha = this.fecha;
-     this.data.id = id;
+     this.data.id = this.newObrero.id;
      this.data.checked = true;
-     this.data.nombre= this.nombre;
-     this.data.apellido = this.apellido;
-     this.database.createDoc(this.data, path, id).then(() => {
+     this.data.nombre= this.newObrero.nombre;
+     this.database.createDoc(this.data, path, this.data.id).then(() => {
         this.interaction.closeLoading();
         this.interaction.presentToast('Asistencia Marcada')
      })
   }
 
-  async noAsistencia(){
-    await this.interaction.presentLoading('Marcando Ausencia')
-     const path = 'Asistencia';
-     const name = this.data.nombre;
-     const id = this.fecha;
+  async crearAusente(obrero: ObreroI){
+    this.newObrero = obrero;
+    await this.interaction.presentLoading('Marcando Asistencia')
+     const path = "Asistencia/" + this.fecha + "/obreros";
+     this.data.apellido = this.newObrero.apellido;
      this.data.fecha = this.fecha;
-     this.data.id = id;
+     this.data.id = this.newObrero.id;
      this.data.checked = false;
-     this.data.nombre= this.nombre;
-     this.data.apellido = this.apellido;
-     this.database.createDoc(this.data, path, id).then(() => {
+     this.data.nombre= this.newObrero.nombre;
+     this.database.createDoc(this.data, path, this.data.id).then(() => {
         this.interaction.closeLoading();
-        this.interaction.presentToast('Ausencia Marcada')
+        this.interaction.presentToast('Asistencia Marcada')
      })
+
+
   }
+
 
 
 

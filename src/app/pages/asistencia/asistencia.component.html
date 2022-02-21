@@ -15,11 +15,6 @@
     <ion-item class="itemcrear">
   <ion-label class="itemcrear1">Asistencia del: {{fecha}}</ion-label>
 </ion-item>
-
-<!--     <mat-form-field appearance="standard">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field> -->
     <div id="taula">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -48,12 +43,14 @@
         </td>
       </ng-container>
 
-     <!--  <ng-container matColumnDef="marcado">
-        <th mat-header-cell *matHeaderCellDef>Marcado</th>
-        <td>
-          <ion-label>Label</ion-label>
+      <ng-container matColumnDef="checked">
+        <th  mat-header-cell *matHeaderCellDef> Marcado </th>
+        <td  mat-cell *matCellDef="let newObrero">
+          <ion-label>{{newObrero.checked}}</ion-label>
         </td>
-      </ng-container> -->
+      </ng-container>
+
+
 
 
       <!-- Botones Column -->
@@ -61,10 +58,10 @@
         <th mat-header-cell *matHeaderCellDef>Asistencia</th>
         <td mat-cell *matCellDef="let newObrero">
 
-              <ion-button (click)="crearAsistencia()"  color="success" class="lista">
+              <ion-button (click)="crearAsistencia(newObrero)"  color="success" class="lista">
                 <ion-icon size="large" class="iconeye" name="checkmark-circle"></ion-icon>
               </ion-button>
-              <ion-button (click)="noAsistencia()" color="danger" class="listax">
+              <ion-button (click)="crearAusente(newObrero)" color="danger" class="listax">
                 <ion-icon size="large" class="iconeye" name="close-circle"></ion-icon>
               </ion-button>
 
