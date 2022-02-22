@@ -29,7 +29,7 @@ export class AsistenciaComponent implements OnInit {
   data : AsistenciaI= {
     nombre: null,
     apellido: null,
-    checked: false,
+    checked: 'Ausente',
     fecha: "",
     id: "",
 
@@ -111,7 +111,7 @@ dataSource: any;
      this.data.apellido = obrero.apellido;
      this.data.fecha = this.fecha;
      this.data.id = this.newObrero.id;
-     this.data.checked = true;
+     this.data.checked = 'Presente';
      this.data.nombre= this.newObrero.nombre;
      this.database.createDoc(this.data, path, this.data.id).then(() => {
         this.interaction.closeLoading();
@@ -121,16 +121,16 @@ dataSource: any;
 
   async crearAusente(obrero: ObreroI){
     this.newObrero = obrero;
-    await this.interaction.presentLoading('Marcando Asistencia')
+    await this.interaction.presentLoading('Marcando Ausente')
      const path = "Asistencia/" + this.fecha + "/obreros";
      this.data.apellido = this.newObrero.apellido;
      this.data.fecha = this.fecha;
      this.data.id = this.newObrero.id;
-     this.data.checked = false;
+     this.data.checked = 'Ausente';
      this.data.nombre= this.newObrero.nombre;
      this.database.createDoc(this.data, path, this.data.id).then(() => {
         this.interaction.closeLoading();
-        this.interaction.presentToast('Asistencia Marcada')
+        this.interaction.presentToast('Ausente Marcado')
      })
 
 

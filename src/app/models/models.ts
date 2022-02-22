@@ -6,7 +6,7 @@ export interface ObreroI{
         telefono: string;
         foto: string;
         id: string;
-        checked? : boolean;
+        checked? : 'Presente' | 'Ausente';
 
 }
 
@@ -48,7 +48,7 @@ export interface PedidoI{
 export interface AsistenciaI{
   nombre: string;
   apellido: string;
-  checked: boolean;
+  checked: 'Presente' | 'Ausente';
   fecha: Date | any;
   id: string;
 

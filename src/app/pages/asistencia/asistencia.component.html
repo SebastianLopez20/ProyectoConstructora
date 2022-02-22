@@ -46,7 +46,8 @@
       <ng-container matColumnDef="checked">
         <th  mat-header-cell *matHeaderCellDef> Marcado </th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-label>{{newObrero.checked}}</ion-label>
+          <ion-label class="presente" *ngIf="newObrero.checked == 'Presente'" >{{newObrero.checked}}</ion-label>
+          <ion-label class="ausente" *ngIf="newObrero.checked == 'Ausente'" >{{newObrero.checked}}</ion-label>
         </td>
       </ng-container>
 
@@ -58,7 +59,7 @@
         <th mat-header-cell *matHeaderCellDef>Asistencia</th>
         <td mat-cell *matCellDef="let newObrero">
 
-              <ion-button (click)="crearAsistencia(newObrero)"  color="success" class="lista">
+              <ion-button  (click)="crearAsistencia(newObrero)"  color="success" class="lista">
                 <ion-icon size="large" class="iconeye" name="checkmark-circle"></ion-icon>
               </ion-button>
               <ion-button (click)="crearAusente(newObrero)" color="danger" class="listax">

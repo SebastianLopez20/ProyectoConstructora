@@ -23,10 +23,7 @@
       monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"></ion-datetime>
       <ion-icon class="calend" slot="end" name="calendar"></ion-icon>
     </ion-item>
-  <ion-button  class="agregar" >
-    <ion-icon slot='end' name="checkbox"></ion-icon>
-    Devueltos
-  </ion-button>
+    <br>
   <div id="taula">
     <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -67,7 +64,7 @@
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let newPedido">
           <ion-buttons>
-            <ion-button   (click)="presentAlertConfirm2(newPedido)">
+            <ion-button *ngIf="newPedido.estado == 'pedido'"    (click)="presentAlertConfirm2(newPedido)">
               <ion-icon class="iconye" slot="icon-only" name="checkbox"></ion-icon>
             </ion-button>
               <ion-button (click)="presentAlertConfirm(newPedido.id)">

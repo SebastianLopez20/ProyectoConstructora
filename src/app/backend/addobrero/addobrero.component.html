@@ -21,12 +21,12 @@
 
     <ion-item class="itm">
       <ion-label position="floating">Cedula</ion-label>
-      <ion-input [(ngModel)]="data.cedula"></ion-input>
+      <ion-input maxlength="10" type="number" [(ngModel)]="data.cedula"></ion-input>
     </ion-item>
 
     <ion-item class="itm">
-      <ion-label position="floating">Telefono</ion-label>
-      <ion-input  [(ngModel)]="data.telefono"></ion-input>
+      <ion-label  position="floating">Telefono</ion-label>
+      <ion-input maxlength="10" type="number" [(ngModel)]="data.telefono"></ion-input>
     </ion-item>
     <ion-item class="itm">
       <ion-label>Foto</ion-label>
