@@ -13,7 +13,7 @@ import { AsistenciaI } from 'src/app/models/models';
 export class VerAsistenciaComponent implements OnInit {
   fechahoy: Date = new Date();
   fecha = this.database.formatDate(this.fechahoy);
-  fechaselected = new Date();
+  fechaselected: Date= new Date();
   ELEMENT_DATA: AsistenciaI[] = [
   ];
 
@@ -27,8 +27,6 @@ export class VerAsistenciaComponent implements OnInit {
   }
   displayedColumns: string[] = ['nombre', 'apellido', 'fecha', 'asistencia'];
   dataSource: any;
-  fechaFormato: String;
-
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
               private interaccion: InteractionService,
@@ -45,7 +43,7 @@ export class VerAsistenciaComponent implements OnInit {
   }
   async loadInfo() {
     await this.interaccion.presentLoading("Cargando Datos");
-      const path = 'Asistencia/' +this.fecha + '/obreros';
+      const path = 'Asistencia/' + this.fecha + '/obreros';
     let fechainicial= new Date(this.fechaselected);
     fechainicial.setHours(0)
     fechainicial.setMinutes(0)
@@ -68,6 +66,8 @@ export class VerAsistenciaComponent implements OnInit {
         if (res) {
           this.ELEMENT_DATA = res;
           console.log('res -> ', this.ELEMENT_DATA);
+          console.log('eoo',this.fecha);
+
           this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
           }
       });
@@ -78,11 +78,12 @@ export class VerAsistenciaComponent implements OnInit {
   fechaElegida(event){
     console.log(event);
     this.fechaselected = new Date(event.detail.value);
-    const iondate = new Date(event.detail.value);
+    this.fecha = this.database.formatDate(this.fechaselected)
+    /* const iondate = new Date(event.detail.value);
     const fecha = this.database.formatDate(iondate);
     console.log('fechass',fecha);
     this.fechaFormato = fecha;
-    console.log('fechaF',this.fechaFormato);
+    console.log('fechaF',this.fechaFormato); */
     this.ELEMENT_DATA = [];
     this.loadInfo();
     }

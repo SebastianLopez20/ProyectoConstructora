@@ -55,7 +55,8 @@
       <ng-container matColumnDef="cantidad">
         <th mat-header-cell *matHeaderCellDef> Cantidad </th>
         <td mat-cell *matCellDef="let newMaterial">
-          <ion-label>{{newMaterial.cantidad}}</ion-label>
+          <ion-label class="labelcant">{{newMaterial.cantidad}}</ion-label>
+          <ion-icon *ngIf="newMaterial.cantidad <= 2"   class="iconalert" slot="end" name="alert-circle-outline"></ion-icon>
         </td>
       </ng-container>
  <!-- unidadmedida Column -->
@@ -93,5 +94,7 @@
     </table>
     </div>
   </ion-content>
+
+
 
 
