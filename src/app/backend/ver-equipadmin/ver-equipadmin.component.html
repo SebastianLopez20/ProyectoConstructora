@@ -4,28 +4,18 @@
       <ion-icon size="large"name="grid"></ion-icon>
     </ion-button>
     <ion-title class="titulo">
-      GESTION DE EQUIPOS
+      Inventario de Equipos
     </ion-title>
   </ion-toolbar>
 
 </ion-header>
 
   <ion-content>
+    <ion-item class="itemcrear">
+      <ion-label class="itemcrear1">Equipos Vista</ion-label>
+    </ion-item>
     <br>
 
-    <!-- <ion-item class="itemcrear">
-      <ion-icon  slot="start" name="add"></ion-icon>
-      <ion-label class="itemcrear1">Como usuario "Administrador" cuenta <br>
-                                    con el privilegio unico de lectura de <br>
-                                    los archivos, para interactuar con los <br>
-                                    archivos inicie sesión desde un perfil <br>
-                                    de "Bodeguero" o "Secretaria".</ion-label>
-      </ion-item> -->
-
-<!--     <mat-form-field appearance="standard">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field> -->
     <div id="taula">
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

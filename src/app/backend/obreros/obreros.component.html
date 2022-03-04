@@ -22,15 +22,14 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field> -->
-    <div id="taula">
+    <div  id="taula">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!-- Position Column -->
       <ng-container matColumnDef="foto">
         <th  mat-header-cell *matHeaderCellDef> Foto </th>
         <td class="cedula" mat-cell *matCellDef="let newObrero">
-          <!-- <ion-input [(ngModel)]="newObrero.foto"></ion-input>   -->
-          <img [src]="newObrero.foto" >
+          <img class="ion-justify-content-center" [src]="newObrero.foto" >
         </td>
       </ng-container>
 
@@ -38,7 +37,7 @@
       <ng-container matColumnDef="nombre">
         <th  mat-header-cell *matHeaderCellDef> Nombre </th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.nombre"></ion-input>
+          <ion-label >{{newObrero.nombre}}</ion-label>
         </td>
       </ng-container>
 
@@ -46,7 +45,7 @@
       <ng-container matColumnDef="apellido">
         <th  mat-header-cell *matHeaderCellDef> Apellido </th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.apellido"></ion-input>
+          <ion-label>{{newObrero.apellido}}</ion-label>
         </td>
       </ng-container>
 
@@ -54,7 +53,7 @@
       <ng-container matColumnDef="cedula">
         <th  mat-header-cell *matHeaderCellDef> Cedula</th>
         <td  mat-cell *matCellDef="let newObrero">
-          <ion-input [(ngModel)]="newObrero.cedula"></ion-input>
+          <ion-label>{{newObrero.cedula}}</ion-label>
         </td>
       </ng-container>
 
@@ -62,11 +61,11 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones </th>
         <td mat-cell *matCellDef="let newObrero">
-          <ion-buttons>
-            <ion-button (click)="verDetalles(newObrero)">
+          <ion-buttons class="butts">
+            <ion-button class="botonaccion" (click)="verDetalles(newObrero)">
               <ion-icon class="iconeye" slot="icon-only" name="create"></ion-icon>
             </ion-button>
-              <ion-button (click)="presentAlertConfirm(newObrero.id)">
+              <ion-button class="botonaccion" (click)="presentAlertConfirm(newObrero.id)">
                 <ion-icon class="icontrash" slot="icon-only" name="trash-sharp"></ion-icon>
               </ion-button>
           </ion-buttons>

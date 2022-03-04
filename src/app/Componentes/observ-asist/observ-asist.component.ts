@@ -1,43 +1,54 @@
-import { InteractionService } from './../../services/interaction.service';
-import { MaterialI, HerramientaI } from './../../models/models';
-import { FirestorageService } from './../../services/firestorage.service';
 import { FirestoreService } from './../../services/firestore.service';
-import { ModalController } from '@ionic/angular';
+import { FirestorageService } from './../../services/firestorage.service';
+import { InteractionService } from './../../services/interaction.service';
+import { AsistenciaI } from './../../models/models';
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-details-material',
-  templateUrl: './details-material.component.html',
-  styleUrls: ['./details-material.component.scss'],
+  selector: 'app-observ-asist',
+  templateUrl: './observ-asist.component.html',
+  styleUrls: ['./observ-asist.component.scss'],
 })
-export class DetailsMaterialComponent implements OnInit {
+export class ObservAsistComponent implements OnInit {
+  fech: "";
+  observ: "";
   newImage = '';
+  fechahoy: Date = new Date();
+  fecha = this.database.formatDate(this.fechahoy);
   newFile = '';
-  path = 'Materiales/';
-  newEquipo : MaterialI={
-    foto: '',
+  path = '';
+  newAsistencia: AsistenciaI ={
     nombre: '',
-    descripcion: '',
-    cantidad: null,
-    id: '',
+    apellido:'',
+    checked: null,
+    fecha: '',
+    id:'',
+    observaciones:'',
+    justfoto:''
+
   }
 
-  @Input() team: HerramientaI;
+  @Input() team: AsistenciaI;
   constructor(private ModalController: ModalController,
               private database: FirestoreService,
               public firestorageservice: FirestorageService,
               private interaction: InteractionService) { }
 
-  ngOnInit() { console.log('esto', this.team);}
+  ngOnInit() {console.log('esto', this.team);
+}
+
   Cerrar(){
     this.ModalController.dismiss();
     }
     async editar() {
-      const path = 'Materiales';
+      console.log('feha',this.team.fecha);
+      this.path = 'Asistencia/' +this.team.fecha + '/obreros';
+      const path = 'Asistencia/' +this.team.fecha+ '/obreros';
       const name = this.team.nombre;
       if(this.newImage){
         const res = await this.firestorageservice.uploadImage(this.newFile, path,name)
-        this.team.foto= res;
+        this.team.justfoto= res;
       }
       console.log('elemento -> ', this.team);
       console.log('path',this.path)
@@ -56,5 +67,6 @@ export class DetailsMaterialComponent implements OnInit {
        reader.readAsDataURL(event.target.files[0]);
       }
     }
+
 
 }

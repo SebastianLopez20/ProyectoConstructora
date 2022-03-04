@@ -41,6 +41,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { MenuAdminComponent } from './backend/menu-admin/menu-admin.component';
 import { VerMateradminComponent } from './backend/ver-materadmin/ver-materadmin.component';
 import { VerPedidadminComponent } from './backend/ver-pedidadmin/ver-pedidadmin.component';
+import { ObservAsistComponent } from './Componentes/observ-asist/observ-asist.component';
 
 
 
@@ -73,7 +74,8 @@ import { VerPedidadminComponent } from './backend/ver-pedidadmin/ver-pedidadmin.
     VerEquipadminComponent,
     VerHerradminComponent,
     VerMateradminComponent,
-    VerPedidadminComponent
+    VerPedidadminComponent,
+    ObservAsistComponent
 
   ],
   entryComponents: [],

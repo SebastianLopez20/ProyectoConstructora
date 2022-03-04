@@ -4,9 +4,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
+  <br>
   <img class="logo" src="../assets/icon/Captura.JPG" alt="">
+  <br>
   <ion-item class="itm">
-
     <ion-label class="labelmail" position="floating">
       Correo Electronico</ion-label>
     <ion-input [(ngModel)]="credenciales.correo" type="email" name="email">
@@ -21,7 +22,7 @@
   </ion-item>
 
 
-  <ion-button (click)="login()" class="butto" expand="block" >Ingresar</ion-button>
+  <ion-button (click)="login()" class="button" expand="block" >Ingresar</ion-button>
 
 </ion-content>
 <ion-footer class="ion-no-border">
@@ -29,3 +30,4 @@
     <ion-title class="pietitulo">Constructora TaipeLopez</ion-title>
   </ion-toolbar>
 </ion-footer>
+

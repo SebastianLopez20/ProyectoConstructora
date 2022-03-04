@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AsistenciaI, ObreroI } from './../../models/models';
 import {MatTableDataSource} from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
+import { ObservAsistComponent } from 'src/app/Componentes/observ-asist/observ-asist.component';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asistencia.component.scss'],
 })
 export class AsistenciaComponent implements OnInit {
+  boton: boolean;
+  contador = 0;
+  observacion: '';
   fechahoy: Date = new Date();
   fecha = this.database.formatDate(this.fechahoy);
   ELEMENT_DATA: ObreroI[] = [
@@ -32,13 +36,14 @@ export class AsistenciaComponent implements OnInit {
     checked: 'Ausente',
     fecha: "",
     id: "",
+    observaciones: "",
 
 }
 
 obreros: ObreroI[]=[]
 asistenciahoy: AsistenciaI[]=[]
 
-displayedColumns: string[] = ['foto', 'nombre', 'apellido','checked', 'acciones'];
+displayedColumns: string[] = ['foto', 'nombre', 'apellido','checked','acciones'];
 dataSource: any;
 
   constructor(private tabla: MatTableModule,
@@ -63,6 +68,7 @@ dataSource: any;
   }
   async loadInfo() {
 
+    this.boton=false;
       await this.interaction.presentLoading("Cargando Obreros");
       const path = 'Obreros';
       this.database.getCollection<ObreroI>(path).subscribe( res => {
@@ -104,6 +110,7 @@ dataSource: any;
         })
   }
 
+
   async crearAsistencia(obrero: ObreroI){
     this.newObrero = obrero;
     await this.interaction.presentLoading('Marcando Asistencia')
@@ -135,6 +142,20 @@ dataSource: any;
 
 
   }
+
+  async verDetalles(asistencia: AsistenciaI){
+    console.log('detalles', asistencia);
+    this.data = asistencia;
+   const modal = await this.modalController.create({
+      component: ObservAsistComponent,
+      componentProps: {team: this.data},
+      mode: 'ios',
+      swipeToClose: true,
+
+    });
+    return await modal.present();
+
+    }
 
 
 

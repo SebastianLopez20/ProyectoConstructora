@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./obreros.component.scss'],
 })
 export class ObrerosComponent implements OnInit {
-
+  tiempotabla= 0;
   path = 'Obreros';
   ELEMENT_DATA: ObreroI[] = [
 
@@ -63,6 +63,7 @@ dataSource: any
         if(this.ELEMENT_DATA.length == 0){
           this.interaction.closeLoading();
           this.interaction.presentToast('Datos Cargados');
+          this.tiempotabla = 1;
         }
 
         if (res) {
@@ -83,6 +84,7 @@ dataSource: any
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
       header: '¿Eliminar Archivo?',
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'Cancelar',

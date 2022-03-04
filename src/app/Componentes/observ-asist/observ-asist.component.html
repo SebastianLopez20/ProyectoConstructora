@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar class="toolb">
+    <ion-title  class="titulo">Permisos y Justificaciónes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Cerrar()">
+        <ion-icon  name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <h1 class="h1h">Obrero</h1>
+  <ion-item class="itm" *ngIf="team">
+    <ion-label>{{team.nombre}}  {{team.apellido}}</ion-label>
+  </ion-item>
+
+  <h1 class="h1h">Permiso o Justificación</h1>
+  <ion-item class="itm" *ngIf="team">
+    <ion-textarea type="text" placeholder="Detalles de justificación o permiso"  [(ngModel)]="team.observaciones"></ion-textarea>
+  </ion-item>
+  <h1>Foto</h1>
+  <ion-card *ngIf="team.justfoto" >
+    <ion-card-header class="cardh">
+      <ion-card-title class="title">Justificacion Presentada</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img class="imgjust" [src]="team.justfoto">
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item class="itm">
+    <ion-label>Prueba de justificación</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon class="iconimg" slot='icon-only' name="images"></ion-icon>
+        </label>
+      <input (change)="newImageUpload($event)"id="file-upload" style="display: none"type="file" accept="image/*">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-card *ngIf="newImage" >
+    <ion-card-header class="cardh">
+      <ion-card-title class="title">Imagen Seleccionada</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img  class="selimg" [src]="newImage">
+    </ion-card-content>
+  </ion-card>
+
+
+
+    <ion-button expand="full" (click)="editar()" class="agregar">
+      <ion-icon  slot="start" name="create-sharp"></ion-icon>
+      Editar
+    </ion-button>
+
+</ion-content>
+

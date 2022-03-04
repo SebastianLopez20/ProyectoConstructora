@@ -35,7 +35,7 @@ export class DetailsHerramientaComponent implements OnInit {
     this.ModalController.dismiss();
     }
     async editar() {
-      const path = 'Equipos';
+      const path = 'Herramientas';
       const name = this.team.nombre;
       if(this.newImage){
         const res = await this.firestorageservice.uploadImage(this.newFile, path,name)

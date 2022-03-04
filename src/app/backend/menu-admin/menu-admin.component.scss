@@ -35,6 +35,9 @@ min-width: 10%;
 margin-right: 2%;
 
 }
+ion-content{
+  --background: url(../../../assets/icon/fondogrey.jpg) 0 0/100% 100% no-repeat;
+  }
 .card3{
 --background: rgba(8, 109, 241, 0.116);
 text-align: center;
@@ -69,11 +72,11 @@ overflow: visible;
   font-size: 19px;
   justify-content: center;
   text-align: center;
-  background-color: rgba(61, 48, 236, 0.616);
+  background-color: #268bdb9c;
 
 }
 .cabecera{
- --background: #2196F3;
+ --background: #268bdb;
 
 
 

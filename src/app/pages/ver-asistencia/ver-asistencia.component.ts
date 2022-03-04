@@ -4,6 +4,7 @@ import { InteractionService } from 'src/app/services/interaction.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { AsistenciaI } from 'src/app/models/models';
+import { ObservAsistComponent } from 'src/app/Componentes/observ-asist/observ-asist.component';
 
 @Component({
   selector: 'app-ver-asistencia',
@@ -25,7 +26,7 @@ export class VerAsistenciaComponent implements OnInit {
     id:''
 
   }
-  displayedColumns: string[] = ['nombre', 'apellido', 'fecha', 'asistencia'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'fecha', 'asistencia', 'Observaciones'];
   dataSource: any;
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,
@@ -87,6 +88,21 @@ export class VerAsistenciaComponent implements OnInit {
     this.ELEMENT_DATA = [];
     this.loadInfo();
     }
+
+    async verDetalles(asistencia: AsistenciaI){
+    console.log('detalles', asistencia);
+    this.newAsistencia = asistencia;
+   const modal = await this.modalController.create({
+      component: ObservAsistComponent,
+      componentProps: {team: this.newAsistencia},
+      mode: 'ios',
+      swipeToClose: true,
+
+    });
+    return await modal.present();
+
+    }
+
 
 
 }

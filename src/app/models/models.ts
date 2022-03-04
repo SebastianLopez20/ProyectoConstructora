@@ -7,6 +7,7 @@ export interface ObreroI{
         foto: string;
         id: string;
         checked? : 'Presente' | 'Ausente';
+        obs?: boolean;
 
 }
 
@@ -51,6 +52,8 @@ export interface AsistenciaI{
   checked: 'Presente' | 'Ausente';
   fecha: Date | any;
   id: string;
+  observaciones?: string;
+  justfoto?: string;
 
 }
 
