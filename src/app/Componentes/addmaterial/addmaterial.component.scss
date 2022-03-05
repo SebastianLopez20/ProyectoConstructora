@@ -22,7 +22,7 @@
 
 }
 .itm{
-  --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
+  --background: #ffffffb0;
   color: black;
   font-weight: bolder;
 }
@@ -66,6 +66,9 @@
   margin-left: 2%;
     color: black;
 }
+ion-content{
+  --background: url(../../../assets/icon/fondotablas.jpg) 0 0/100% 100% no-repeat;
+  }
 
 .selimg{
     max-width: 50%;

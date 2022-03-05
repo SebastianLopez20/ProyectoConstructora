@@ -128,6 +128,7 @@ export class VerPedidoComponent implements OnInit {
   async presentAlertConfirm2(pedido: PedidoI) {
     const alert = await this.alertController.create({
       header: '¿Marcar como devuelto?',
+      cssClass: 'my-custom-class2',
       buttons: [
         {
           text: 'Cancelar',

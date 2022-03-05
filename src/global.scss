@@ -42,13 +42,12 @@
     --background: #363636;
 }
 
-.ios{
-    //--ion-background-color: linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
-    --background:#363636;
-}
-.md{
-    //--ion-background-color: linear-gradient(170deg, #a8f1f5 0, #5389f2 50%, #043d7e 100%);
-    --background: #363636;
+.select-icon {
+  width: 30px;
+  height: 25px;
+  color: black;
+  position: relative;
+  opacity: 0;
 }
 .sc-ion-picker-ios-h {
   --background: url(./assets/icon/fondoblanco.jpg) 0 0/100% 100% no-repeat;
@@ -269,6 +268,59 @@
   color: black !important;
   font-weight: bolder;
 }
+
+
+.my-custom-class2 .alert-head {
+  background: rgba(76, 177, 245, 0.856);
+}
+.my-custom-class2 .alert-button-group{
+  justify-content: center;
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 8px;
+  -webkit-padding-end: 8px;
+  padding-inline-end: 8px;
+  background: rgba(245, 245, 245, 0.76);
+}
+.my-custom-class2 .alert-title{
+  color: black;
+  --ion-text-color:black;
+  font-size: 20px;
+  font-weight: 500;
+  font-weight: bolder;
+  text-align: center;
+}
+.my-custom-class2 .alert-button{
+   padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 10px;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  margin: auto;
+  background: #000000ce;
+  color: white;
+  --ion-text-color: white;
+}
+.my-custom-class2 .alert-message{
+  max-height: 266px;
+  font-size: 16px;
+  color: black;
+  font-weight: bolder;
+}
+.my-custom-class2 .picker-toolbar-button{
+  -ms-flex: 1;
+  flex: 1;
+  text-align: end;
+  background: #367af5;
+}
+.my-custom-class2 .alert-button-inner{
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+}
+
 
 //tablas style
 

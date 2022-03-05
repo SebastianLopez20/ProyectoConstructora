@@ -27,14 +27,9 @@
     --color: black;
     text-align: center;
 }
-img{
-  max-width: 80%;
-  max-height:80%;
-}
 
-ion-col{
-    color: white;
-}
+
+
 .botn{
   min-width: 10%;
   --background:#0751f19c;
@@ -43,6 +38,27 @@ ion-col{
 }
 .colormenu{
     color: black;
+}
+.butts{
+  margin-left: 28px;
+  margin-right: 0px;
+}
+.botonaccion{
+  --background: #2196f370;
+      padding-right: 2px;
+}
+img {
+  max-width: 90px;
+  border: 0;
+  align-content: center;
+  display: block;
+  //margin-right: 25px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+border: 1px black solid;
 }
 .agregar{
   --background: #2ddb53;
@@ -54,57 +70,14 @@ ion-col{
   border-radius: 10px;
   font-weight: bolder;
   font-size: medium;
-}
-td {
-    border: 1px rgb(0, 0, 0) solid;
-    text-align: center;
-    min-width: 100%;
-    max-height: 100%;
-    max-width: 100%;
-}
-th{
-  max-width: 100%;
-  min-width: 100px;
-  max-height: 100%;
-}
-
-
-#taula {
-  width: 100%;
-    overflow-x:scroll;
-    //width: 220px;
-    margin-bottom: 3%;
-}
- th.mat-header-cell {
-    text-align:center;
-    //border: 1px rgb(15, 15, 15) solid;
-
 
 }
 
-th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
-  padding: 0px;
-}
-th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
-    padding: 0px;
-}
-.mat-header-cell {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.mat-cell, .mat-footer-cell {
-    font-size: 18px;
-}
-.cedula{
-    width: 100%;
-    word-wrap: break-word;
-}
 .iconeye{
-  color: #2196F3;
+  color: #000000;
 }
 .icontrash{
-  color: rgba(238, 55, 55, 0.986);
+  color: rgb(249 0 0);
 }
 .alert-head.sc-ion-alert-md {
   background: rgba(255, 0, 0, 0.829);
@@ -178,5 +151,7 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
   text-align: end;
   background: #367af5;
 }
-
+ion-content{
+  --background: url(../../../assets/icon/fondotablas.jpg) 0 0/100% 100% no-repeat;
+  }
 

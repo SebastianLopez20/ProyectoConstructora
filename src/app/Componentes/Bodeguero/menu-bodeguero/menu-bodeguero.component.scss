@@ -44,6 +44,9 @@
   box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.75);
   overflow: visible;
 }
+ion-content{
+  --background: url(../../../../assets/icon/fondogrey.jpg) 0 0/100% 100% no-repeat;
+  }
 .card4{
   --background: rgba(8, 109, 241, 0.116);
   text-align: center;
@@ -60,7 +63,7 @@
     font-size: 19px;
     justify-content: center;
     text-align: center;
-    background-color: rgba(61, 48, 236, 0.616);
+    background-color: #268bdb9c;
 
 }
 .cabecera{

@@ -2,6 +2,7 @@
     --background:#2196F3;
 
 }
+
 .titulo{
     text-align: center;
     --color: black;
@@ -25,8 +26,9 @@
   margin-left: 2%;
 
 }
+
 .itm{
-  --background:  linear-gradient(130deg, #dafdff 0, #afe7ff 16.67%, #7ecefb 33.33%, #3cb5f2 50%, #009ce9 66.67%, #0084e0 83.33%, #006ed7 100%);
+  --background: #ffffffb0;
     color: black;
     font-weight: bolder;
 }
@@ -63,18 +65,19 @@
     color: black;
 
 }
+ion-content{
+  --background: url(../../../assets/icon/fondotablas.jpg) 0 0/100% 100% no-repeat;
+  }
 .hr{
     height: 3px;
     background-color:#2196F3;
 }
 .agregar{
-    --background: #2196F3;
-    --color: black;
-    --background-hover:green;
-    margin-top:2% ;
-    margin-left: 2%;
-    margin-bottom: 3%;
-
+  --background: #2196f3;
+  --color: black;
+  margin-top:2% ;
+  margin-left: 2%;
+  margin-bottom: 3%;
 }
 
 .selimg{
