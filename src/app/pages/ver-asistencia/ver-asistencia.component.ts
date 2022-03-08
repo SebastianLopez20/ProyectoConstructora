@@ -26,7 +26,7 @@ export class VerAsistenciaComponent implements OnInit {
     id:''
 
   }
-  displayedColumns: string[] = ['nombre', 'apellido', 'fecha', 'asistencia', 'Observaciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'fecha', 'asistencia','VerObs','Observaciones'];
   dataSource: any;
   constructor(private tabla: MatTableModule,
               private database: FirestoreService,

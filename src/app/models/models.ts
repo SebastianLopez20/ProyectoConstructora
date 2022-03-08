@@ -54,6 +54,7 @@ export interface AsistenciaI{
   id: string;
   observaciones?: string;
   justfoto?: string;
+  obs?: boolean;
 
 }
 

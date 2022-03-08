@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { FirestorageService } from './../../services/firestorage.service';
 import { Component, OnInit } from '@angular/core';
 import { InteractionService } from './../../services/interaction.service';
@@ -20,22 +21,47 @@ export class AddmaterialComponent implements OnInit {
     id: '',
 }
 
+  lleno : boolean = false;
 
   constructor(private database: FirestoreService,
               private interaction: InteractionService,
-              public firestorageservice: FirestorageService) {
+              public firestorageservice: FirestorageService,
+              public alertController: AlertController) {
                }
 
   ngOnInit() {}
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Ingrese los datos completos.',
+      cssClass: 'my-custom-class3',
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+
   async crearNuevoMaterial(){
-    this.interaction.presentLoading('Guardando')
+    if(this.data.nombre == '' && this.data.cantidad==null){
+      this.presentAlertConfirm()
+      this.lleno=false;
+    }
+    if(this.data.nombre!= '' && this.data.cantidad!=null){
+      this.lleno = true;
+    }
+    if(this.lleno == true){
+      this.interaction.presentLoading('Guardando')
      const path = 'Materiales';
      const name = this.data.nombre
      const res = await this.firestorageservice.uploadImage(this.newFile, path,name)
     this.data.foto= res;
-
-
-
      const id = this.database.getId();
      this.data.id = id;
      this.database.createDoc(this.data, path, id).then(() => {
@@ -46,6 +72,8 @@ export class AddmaterialComponent implements OnInit {
         this.data.cantidad=null;
         this.data.foto= null;
      })
+    }
+
   }
 
   async newImageUpload(event: any){

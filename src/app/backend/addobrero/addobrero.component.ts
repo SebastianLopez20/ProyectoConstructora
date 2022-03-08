@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { FirestorageService } from './../../services/firestorage.service';
 import { FirestoreService } from './../../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,15 +23,42 @@ export class AddobreroComponent implements OnInit {
     id : '',
 }
 
-
+lleno :boolean= false;
 
   constructor (private database: FirestoreService,
               private interaction: InteractionService,
-              public firestorageservice: FirestorageService ) { }
+              public firestorageservice: FirestorageService,
+              public alertController: AlertController ) { }
 
   ngOnInit() {}
 
+
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Ingrese los datos completos.',
+      cssClass: 'my-custom-class3',
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
  async crearNuevoObrero(){
+  if(this.data.nombre == '' && this.data.cedula == ''){
+    this.presentAlertConfirm()
+    this.lleno=false;
+  }
+  if(this.data.nombre!= '' && this.data.cedula != '' && this.data.telefono != ''){
+    this.lleno = true;
+  }
+   if(this.lleno == true){
     this.interaction.presentLoading('Guardando')
     const path = 'Obreros'
     const name = this.data.nombre
@@ -50,6 +78,8 @@ export class AddobreroComponent implements OnInit {
         this.data.telefono=null;
         this.data.foto= null;
      })
+   }
+
   }
   async newImageUpload(event: any){
      if (event.target.files && event.target.files[0]){

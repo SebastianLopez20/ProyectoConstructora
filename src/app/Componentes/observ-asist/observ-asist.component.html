@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolb">
-    <ion-title  class="titulo">Permisos y Justificaciónes</ion-title>
+    <ion-title  class="titulo">Justificaciónes y Permisos</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="Cerrar()">
         <ion-icon  name="close"></ion-icon>
@@ -53,9 +53,13 @@
 
 
 
-    <ion-button expand="full" (click)="editar()" class="agregar">
+    <ion-button expand="block" (click)="editar()" class="agregar">
       <ion-icon  slot="start" name="create-sharp"></ion-icon>
-      Editar
+      Crear Observaciones
+    </ion-button>
+    <ion-button expand="block" (click)="borrarobs()" class="borrar">
+      <ion-icon  slot="start" name="trash-sharp"></ion-icon>
+      Borrar Observaciones
     </ion-button>
 
 </ion-content>

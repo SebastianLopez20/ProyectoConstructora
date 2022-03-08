@@ -321,7 +321,75 @@
 
 }
 
+.my-custom-class3 .alert-button-inner{
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-weight: bolder;
+  justify-content: center;
+ }
+ .my-custom-class3 .alert-wrapper{
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 4px;
+  padding-inline-start: 4px;
+  -webkit-padding-end: 4px;
+  padding-inline-end: 4px;
+  background: rgba(52, 138, 236, 0.726);
+  color: black;
+ }
+.my-custom-class3 .alert-head {
+  background: rgba(86, 150, 169, 0.87);
+  color: black;
 
+}
+.my-custom-class3 .alert-sub-title{
+  color: black;
+  --ion-text-color:black;
+  font-size: 18px;
+  text-align: center;
+}
+
+.my-custom-class3 .alert-button-group{
+  justify-content: center;
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 8px;
+  -webkit-padding-end: 8px;
+  padding-inline-end: 8px;
+  background: #98c5e5;
+  margin: 0%;
+}
+
+.my-custom-class3 .alert-button{
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 10px;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  background: #052ceb85;
+  min-width: 80%;
+}
+
+.my-custom-class3 .picker-toolbar-button{
+  -ms-flex: 1;
+  flex: 1;
+  text-align: end;
+  background: #c0cbe0;
+}
+.my-custom-class3.alert-message{
+  max-height: 266px;
+  font-size: 16px;
+  color: black !important;
+  font-weight: bolder;
+}
+.my-custom-class3 .alert-title.sc-ion-alert-md {
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+}
 //tablas style
 
 td {
