@@ -83,7 +83,7 @@ dataSource: any
 
   async presentAlertConfirm(id: string) {
     const alert = await this.alertController.create({
-      header: '¿Eliminar Archivo?',
+      header: '¿Eliminar Obrero?',
       cssClass: 'my-custom-class',
       buttons: [
         {
